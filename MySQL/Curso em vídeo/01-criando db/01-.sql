@@ -6,7 +6,7 @@ show databases;					#mostra os bancos de dados existentes
 use pacientes;				#Abre o banco de dados
 
 create table pessoa(			#cria uma tabela
-	#criando os CAMPOS (registros são criados com campos) e seus TIPOS( numérico, data/tempo, literal e espacial).
+	#criando os CAMPOS (colunas da tabela) e seus TIPOS( numérico, data/tempo, literal e espacial).
     #NUMÉRICOS: Inteiro (TinyInt, SmallInt, int, MediumInt, BigInt), Real(Decimal, Double, Float, Real) , Lógico(Bit, Boolean)
     #DATA/TEMPO: Date, DateTime, TimeStamp, Time, Year
     #LITERAIS: Caractere (Char(fixo), VarChar(variável)), Texto (TinyText, Text, MediumText, LongText), Binário (TinyBlob, Blob, MediumBlob, LongBlob), coleção(Enum, Set) 
