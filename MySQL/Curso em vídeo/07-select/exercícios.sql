@@ -29,3 +29,23 @@ order by nome;
 select nome, nacionalidade from gafanhotos
 where nome like '%silva%' and sexo = 'm' and nacionalidade != 'brasil'
 order by nome;
+
+#------Exercício 6----------
+#mostre a maior altura entre os homens que moram no brasil
+select max(altura) from gafanhotos
+where nacionalidade = 'brasil';
+
+#------Exercício 7----------
+#mostre a média de peso de todas as pessoas
+select avg(peso) from gafanhotos;
+
+#------Exercício 8----------
+# mostre o menor peso entre as mulhere que nasceram fora do brasil, entre 01/01/1990 e 31/12/2000
+select min(peso) from gafanhotos
+where sexo = 'f' and nacionalidade != 'brasil' and nascimento between '1990-01-01' and '2000-12-31';
+
+#------Exercício 9----------
+#mostre quantas mulheres tem mais de 1,90 m de altura
+select count(altura) from gafanhotos
+where sexo = 'f' and altura >= 1.9;
+
