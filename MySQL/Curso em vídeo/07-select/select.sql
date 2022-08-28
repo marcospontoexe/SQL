@@ -9,6 +9,7 @@ order by nome desc;		#mostra todos os registros de todos os campos, ordenado pel
 select ano, nome, carga  from cursos	#mostra apenas os campos 'idcurso, nome e ano'
 order by ano, nome;						#primeiro ordena por ano e depis por nome
 
+#--------------USANDO OPERADORES------------------------------
 select * from cursos
 where ano <= '2020'				#mostra apenas os registro em que o ano é 2014
 order by nome;					#ordena pelo nome
@@ -23,3 +24,35 @@ where ano in (2014,2016,2020);				#mostra apenas os registro em que o ano é igu
 select * from cursos
 where ano <= 2016 and totaulas <= 15		#mostra apenas os registros que tem o ano menor ou igual que 2016, e que tenha ao mesmo tempo o total de aulas menor ou igual a 15		
 order by ano;
+
+select * from cursos
+where nome like 'p%';				#mostra apenas os registro em que o nome começe com 'p'. Like significa semelhança, substituto da igualdade
+
+#------------WildCards---------
+#O sinal de % é um caracter coringa que substitui qualquer cadeia de string, até mesmo string vazia
+# O sinal _ exige um caractere
+select * from cursos
+where nome like '%a';		#mostra registro que terminam com 'a' no campo nome
+
+select * from cursos
+where nome not like '%a%';	#mostra registros que não tenha'a' no campo nome
+
+select * from cursos
+where nome like 'p%p_';		# O sinal _ exige um caractere
+
+#--------Função de agregação-----------
+select distinct nacionalidade from gafanhotos	#mostra os registro do campo nacionaliade sem repetição
+order by nacionalidade;
+
+select count(*) from cursos where carga > 40;	# mostra a quantidade de registro que tem a carga maior doque 40
+select count(nome) from cursos;	 # mostra a quantidade de registro no campo 'nome'
+
+
+select nome, max(ano) from cursos;		# mostra o registro de maior valor do campo 'ano', e também o nome, mas apenas da primeira ocorrencia, não mostrando todos os nomes que tem o maior ano
+select max(totaulas) from cursos where ano = '2014';		# mostra o registro de maior valor do campo 'totaulas', apenas do ano de 2014
+
+select min(ano) from cursos;		# mostra o registro de menor valor do campo 'ano'
+
+select sum(totaulas) from cursos where ano = '2014';		# soma o tataulas do ano de 2014
+
+select avg(totaulas) from cursos;		# calcula a média do 'totaulas'
