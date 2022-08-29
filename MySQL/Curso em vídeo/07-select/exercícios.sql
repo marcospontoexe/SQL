@@ -56,3 +56,25 @@ where sexo = 'f' and altura >= 1.9;
 select profissao, count(*) from gafanhotos
 group by profissao
 order by profissao;
+
+#----------------------Exercício 2---------------
+#mostre a quantidade de homens e a quantidade de mulheres que nasceram após 01/01/2005
+select sexo, count(*) from gafanhotos
+where nascimento > 2005-01-01
+group by sexo;
+
+#----------------------Exercício 3---------------
+#mostre uma lista com os nacidos fora do brasil, mostrando o país e o total de pessoas nascidas lá. Mostre apenas os paises com mais de trÊs ocorrências
+select nacionalidade, count(*) from gafanhotos
+where nacionalidade != 'brasil'
+group by nacionalidade
+having count(*) >= 3;
+
+#----------------------Exercício 4---------------
+#mostre uma lista agrupada pela altura, mostrando apenas quantas pessoas pesam mais de 100kg e que estão acima da média da altura de todos os cadastrados
+select altura, count(*) from gafanhotos
+where peso >= 100
+group by altura
+having altura >= (select avg(altura) from gafanhotos)
+order by altura;
+
