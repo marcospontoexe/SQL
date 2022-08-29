@@ -56,3 +56,31 @@ select min(ano) from cursos;		# mostra o registro de menor valor do campo 'ano'
 select sum(totaulas) from cursos where ano = '2014';		# soma o tataulas do ano de 2014
 
 select avg(totaulas) from cursos;		# calcula a média do 'totaulas'
+
+#-------Agrupando grupos distintos------------
+select ano from cursos
+group by ano		#agrupa os registro em comum
+order by ano;
+
+select ano, count(nome) from cursos					#mostra tambem a quantidade de ocorrencia em cada grupo
+group by ano		#agrupa os registro em comum
+order by ano;
+
+select ano, count(*) from cursos
+where ano = 2017;
+
+select ano, count(*) from cursos					
+group by ano		#agrupa os registro em comum
+having count(*) > 3			#mostra apena os registros que tem o ano com mais de três ocorrências. So pode ser usado com o mesmo registro usado para agrupar, ou com função de agregação
+order by ano;
+
+select ano, count(*) from cursos
+where totaulas > 30					
+group by ano		#agrupa os registro em comum
+having ano > 2013			#mostra apena os registros que tem o ano com mais de três ocorrências. So pode ser usado com o mesmo registro usado para agrupar, ou com função de agregação
+order by ano;
+
+select nome, carga, ano, count(*) from cursos
+where ano > 2015					
+group by carga		
+having carga > (select avg(carga) from cursos);		#mostra apena os registros que tem a carga maior que a média da carga

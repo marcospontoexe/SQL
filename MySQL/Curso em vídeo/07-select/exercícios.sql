@@ -49,3 +49,10 @@ where sexo = 'f' and nacionalidade != 'brasil' and nascimento between '1990-01-0
 select count(altura) from gafanhotos
 where sexo = 'f' and altura >= 1.9;
 
+#************PARTE DOIS*********************
+
+#----------------------Exercício 1---------------
+#mostre uma lista com os cursos e a quantidade de ocorrencia em cada curso
+select profissao, count(*) from gafanhotos
+group by profissao
+order by profissao;
