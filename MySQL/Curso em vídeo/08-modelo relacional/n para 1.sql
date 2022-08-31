@@ -6,7 +6,7 @@ select * from gafanhotos;
 
 #inserindo uma chave estrangeira na entidade n (muitos) gafanhotos.
 alter table gafanhotos
-add column cursopreferido int;  # a chave estrangeira precisa ter o mesmo tipo e tamanho da chave primária, mas não precisa ter o mesmo nome
+add column cursopreferido int;  # a chave estrangeira precisa ter o mesmo tipo, tamanho e constrain que a chave primária, mas não precisa ter o mesmo nome
 
 alter table gafanhotos
 add foreign key (cursopreferido)  # transformando 'cursopreferido' em chave estrangeira
