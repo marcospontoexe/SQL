@@ -1,6 +1,6 @@
 use cadastro;
 
-#para criar um relação entre entidades muitos para muitos (n-n), é necessário cira uma entidade para fazer essa conexão
+#para criar um relação entre entidades muitos para muitos (n-n), é necessário criar uma entidade para fazer essa conexão
 #CRIANDO A ENTIDADE PARA A CONEXÃO ENTRE AS DUAS TABELAS (gafanhotos e cursos);
 create table gafanhotos_cursos(
 	id int auto_increment,		#variável para ser usada como chave primária
@@ -19,12 +19,20 @@ insert into gafanhotos_cursos values
 # mais dados podem ser adicionados via workbanch, é mais prático
 
 #relacionando a entiade gafanhoto com a entidade de conexão
-select * from gafanhotos as g join gafanhotos_cursos as ga
-on g.id = ga.idcursos;		#fazendo a conexão entre as duas instancias
+select * from gafanhotos as g join gafanhotos_cursos as ga	#juntando a instancia gafanhotos com a instância de conexão
+on g.id = ga.idgafanhoto;		#fazendo a conexão entre as duas instancias
 
-#relacionando a entiade gafanhoto com a entidade de conexão
-select g.id, g.nome, ga.idgafanhoto, ga.idcursos from gafanhotos as g join gafanhotos_cursos as ga
-on g.id = ga.idcursos;		#fazendo a conexão entre as duas instancias
+select g.id, g.nome, ga.idgafanhoto, ga.idcursos 
+from gafanhotos as g join gafanhotos_cursos as ga	#juntando a instancia gafanhotos com a instância de conexão
+on g.id = ga.idgafanhoto;		#fazendo a conexão entre as duas instancias
+
+#relacionando a entiade cursos e gafanhoto com a entidade de conexão
+select g.nome, ga.data, c.nome
+from gafanhotos as g join gafanhotos_cursos as ga	#juntando a instancia gafanhotos com a instância de conexão
+on g.id = ga.idgafanhoto		#fazendo a conexão entre as duas instancias
+join cursos as c		#juntando a instancia cursos com a instância de conexão
+on c.idcurso = ga.idcursos		#fazendo a conexão entre as duas instancias
+order by g.nome;
 
 select * from cursos;
 select * from gafanhotos;
