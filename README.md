@@ -12,17 +12,20 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
     * inteiros:  TinyInt, SmallInt, int, MediumInt, BigInt.
     * Real: Decimal, Double, Float, Real.
     * Lógico: Bit, Boolean.
+      
 * DATA/TEMPO é usado para registro que contenha informação sobre data e hora.
     * Date.
     * DateTime.
     * TimeStamp.
     * Time.
     * Year.
+      
 * LITERAIS.
     * Caractere é usado para armazenar texto curto: Char(tamanho fixo), VarChar(tamanho variável).
     * Texto é usado para armazenar texto longo: TinyText, Text, MediumText, LongText.
     * Binário permiter armazenar qualquer coisa binária: TinyBlob, Blob, MediumBlob, LongBlob.
     * coleção é para configurar qual é o valor permitido de ser armazenado : Enum, Set.
+      
 * ESPACIAL é usado para registro com informação volumétrica.
     * Geometry.
     * Point.
