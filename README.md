@@ -52,4 +52,6 @@ Caso a ordem de inserção dos dados seja a mesma ordem em que os campos foram c
 É possível inserir vários valores em um único mando; `insert into nome_tabela values (valores), (valores), (valores);`.
 Use o comando `select * from nome_tabela;` para mostrar todos os registros da tabela.
 
+## Alterando a estrutura da tabela
+
 
