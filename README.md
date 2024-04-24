@@ -50,6 +50,7 @@ Veja no [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20
 ## Inserindo dados na tabela
 Para inserir dados em uma tabela é necessário que o banco de dados esteja aberto, use o comando `use nome_banco_de_dados;` para abrir o banco de dados.
 Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/03-insert%20to/exemplo.sql) como insirir dados nas tabelas usando o comando `insert into nome_tabela(campos) values (valores);`.
+Os dados a serem inseridos na tabela sempre devem ficar entre aspas simples.
 Caso a ordem de inserção dos dados seja a mesma ordem em que os campos foram criados, não é preciso inserir o id dos campos no comando; `insert into nome_tabela values (valores);`.
 É possível inserir vários valores em um único mando; `insert into nome_tabela values (valores), (valores), (valores);`.
 Use o comando `select * from nome_tabela;` para mostrar todos os registros da tabela.
@@ -71,5 +72,8 @@ Use o comando `select * from nome_tabela;` para mostrar todos os registros da ta
    * Adicionar uma chave primária; `alter table nome_tabela add primary key(nome_campo);`.
    * Apaga a tabela caso ela exista; `drop table if exists nome_tabela;`.
 
-* Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/05-manipulando%20registros(linhas)/ex.sql) como alterar os registros de uma tabela
+* Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/05-manipulando%20registros(linhas)/ex.sql) como alterar os registros de uma tabela.
+    * Altere o registro de um campo com o comando `update nome_tabela set nome_campo  = novo_valor where id_do_registro limit quantidade_registro_alterada;`.
+    * Alterando mais de um valor do mesmo registro simutaneamente; `update nome_tabela set nome_campo_1 = novo_valor, nome_campo_2 = novo_valor where id_do_registro limit quantidade_registro_alterada;`.
+  Não é possível manipular vários registros ao mesmo tempo, mas é possível manipular vários campos simutaneamente.
 
