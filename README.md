@@ -56,7 +56,8 @@ Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso
 Os dados a serem inseridos na tabela sempre devem ficar entre aspas simples.
 Caso a ordem de inserção dos dados seja a mesma ordem em que os campos foram criados, não é preciso inserir o id dos campos no comando; `insert into nome_tabela values (valores);`.
 É possível inserir vários valores em um único mando; `insert into nome_tabela values (valores), (valores), (valores);`.
-Use o comando `select * from nome_tabela;` para mostrar todos os registros da tabela.
+
+Use o comando `select * from nome_tabela;` para selecionar todos os campos da tabela, isso mostra todos os registros da tabela.
 
 ## Alterando a estrutura da tabela
 * Veja como usar [alter](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/04-alter/alterando%20campos.sql) para criar, apagar, e alterar o tipo ou nome do campo ou de uma tabela.
@@ -80,5 +81,16 @@ Use o comando `select * from nome_tabela;` para mostrar todos os registros da ta
     * Alterando mais de um valor do mesmo registro simutaneamente; `update nome_tabela set nome_campo_1 = novo_valor, nome_campo_2 = novo_valor where id_do_registro limit quantidade_registro_alterada;`.
     * Apague um registro com o comando `delete from nome_tabela where id_do_registro;`.
     * Apaga todos os registro de uma tabela; `truncate nome_tabela;`.
+ 
+## Obtendo dados da tabela
+Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/07-select/select.sql) como usar o comando `select` para selecionar dados da tabela.
+* Seleciona todos os campos da tabela em ordem crescente a partir do primary key; `select * from nome_tabela;`.
+* Seleciona todos os campos da tabela em ordem crescente a partir de um campo; `select * from nome_tabela order by nome_campo;`.
+* Seleciona todos os campos da tabela em ordem decrescente a partir de um campo; `select * from nome_tabela order by nome_campo desc;`.
+* Seleciona alguns campos da tabela, e ordena de forma crescente a partir de um campo primario e depois a partir de um campo secundário; `select nome_campo_1, nome_campo_2, nome_campo_3  from nome_tabela order by nome_campo_primário, nome_campo_secundário;`.
+* Seleciona todos os campos, mas apenas os registros solicitados pelo parâmetro *where*, ordenando a partir de um campo; `select * from nome_tabela where nome_registro = 'nome_do_valor' 
+ order by nome_campo;`.
+* Seleciona todos os campos, mas apenas os registros solicitados pelo parâmetro *where*; `select * from nome_tabela where nome_registro > 'nome_do_valor';`. Nesse caso é usado o operador relacional **>** (maior que) como condição.
+
       
 
