@@ -53,7 +53,11 @@ Caso a ordem de inserção dos dados seja a mesma ordem em que os campos foram c
 Use o comando `select * from nome_tabela;` para mostrar todos os registros da tabela.
 
 ## Alterando a estrutura da tabela
-Veja como usar [alter](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/04-alter/alterando%20campos.sql) para criar ou apagar campos de uma tabela.
+Veja como usar [alter](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/04-alter/alterando%20campos.sql) para criar, apagar, e alterar o tipo do campo de uma tabela.
 * Adicione um novo campo na última posição da tabela com o comando; `alter table nome_tabela add column nome_coluna tipo-do-campo;`.
-* exclui o campo da tabela; `alter table nome_tabela drop column nome_coluna`;		
+* exclui o campo da tabela; `alter table nome_tabela drop column nome_coluna`;
+* Insere um novo campo após o campo **nome**; `alter table nome_tabela add column nome_coluna tipo-do-campo after nome;`.
+* Insere um novo campo na primeira posição da tabela; `alter table nome_tabela add column nome_coluna tipo-do-campo first;`.
+* Altera o tipo e constrains do campo de uma tabela; `alter table nome_tabela modify column nome_coluna tipo-do-campo tipo_constrain;`.
+* Altera o nome do campo de uma tabela; `alter table nome_tabela change column `profissão` cargo varchar(30) not null default '';			
 
