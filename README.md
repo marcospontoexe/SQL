@@ -78,5 +78,7 @@ Use o comando `select * from nome_tabela;` para mostrar todos os registros da ta
 * Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/05-manipulando%20registros(linhas)/ex.sql) como alterar os registros de uma tabela.
     * Altere o registro de um campo com o comando `update nome_tabela set nome_campo  = novo_valor where id_do_registro limit quantidade_registro_alterada;`.
     * Alterando mais de um valor do mesmo registro simutaneamente; `update nome_tabela set nome_campo_1 = novo_valor, nome_campo_2 = novo_valor where id_do_registro limit quantidade_registro_alterada;`.
-  Não é possível manipular vários registros ao mesmo tempo, mas é possível manipular vários campos simutaneamente.
+    * Apague um registro com o comando `delete from nome_tabela where id_do_registro;`.
+    * Apaga todos os registro de uma tabela; `truncate nome_tabela;`.
+      
 
