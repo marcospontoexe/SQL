@@ -54,6 +54,6 @@ Use o comando `select * from nome_tabela;` para mostrar todos os registros da ta
 
 ## Alterando a estrutura da tabela
 Veja como usar [alter](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/04-alter/alterando%20campos.sql) para criar ou apagar campos de uma tabela.
-* Adicione um novo campo na última posição da tabela com o comando; `alter table nome_tabela add column `nome_coluna` tipo-do-campo;`.
-* exclui o campo da tabela; `alter table nome_tabela drop column `nome_coluna``;		
+* Adicione um novo campo na última posição da tabela com o comando; `alter table nome_tabela add column nome_coluna tipo-do-campo;`.
+* exclui o campo da tabela; `alter table nome_tabela drop column nome_coluna`;		
 
