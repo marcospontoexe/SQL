@@ -60,5 +60,8 @@ Veja como usar [alter](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Cur
 * Insere um novo campo na primeira posição da tabela; `alter table nome_tabela add column nome_campo tipo-do-campo first;`.
 * Altera o tipo e constrains do campo de uma tabela; `alter table nome_tabela modify column nome_campo tipo-do-campo tipo_constrain;`.
 * Altera o nome do campo de uma tabela; `alter table nome_tabela change column nome_campo_antigo nome_campo_novo tipo-do-campo tipo_constrain;`.
-* 		
+
+Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/04-alter/alterando%20tabelas.sql);
+* Como renomear o nome da tabela como comando; `alter table nome_antigo_da_tabela rename to nome_novo_da_tabela;`.
+* Criar uma tabela somente se ele ainda não existe; `create table if not exists nome_tabela (campos) default charset = 'utf8';`. 		
 
