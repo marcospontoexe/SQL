@@ -9,7 +9,7 @@ create table pessoa(			#cria uma tabela
     nome varchar(30) not null,	#not null obriga a preencher a variável
     nascimento date,	#guarda a data de nascimento para calcular a idade
 	sexo enum('M', 'F'),	#aceita paenas M e F
-    peso decimal(5, 2),	#cria um vetor numérico com cinco valores, dois usados após a vírgula
+    peso decimal(5, 2),	#cria um vetor numérico com cinco valores. Três casas antes da vírgula e duas  após a vírgula.
     altura  decimal(3, 2),   
     nascionalidade varchar(20) default 'Brasil',  	#cria uma string, caso não preenchida, recebe o valor 'brasil'  
     primary key(id)				#transforma o campo 'id' em chave primária. Não permite cadastrar o mesmo id

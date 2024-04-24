@@ -5,6 +5,8 @@ show databases;					#mostra os bancos de dados existentes
 
 use pacientes;				#Abre o banco de dados
 
+status;	# mostra qual banco de dados está sendo usado
+
 create table pessoa(			#cria uma tabela
 	#criando os CAMPOS (colunas da tabela) e seus TIPOS( numérico, data/tempo, literal e espacial).
     #NUMÉRICOS: Inteiro (TinyInt, SmallInt, int, MediumInt, BigInt), Real(Decimal, Double, Float, Real) , Lógico(Bit, Boolean)
