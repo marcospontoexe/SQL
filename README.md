@@ -3,6 +3,8 @@ SQL, ou Structured Query Language (Linguagem de Consulta Estruturada), é uma li
 
 ## Criando um banco de dados
 Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/01-criando%20db/01-.sql) como criar, apagar, mostrar e abrir um banco de dados com os comandos; `create database nome_banco_de_dados;`, `drop database nome_banco_de_dados;`, `show databases;`, e `use nome_banco_de_dados;`. Ainda no mesmo exemplo veja como criar, mostrar as tabelas do banco de dados, e ver a descrição de uma tabela como os comandos; `create table nome_tabela(campos);`, `show table;` e `describe nome_tabela;`, e os possíveis tipos de **campos** contidos em uma tabela.
+
+Uma tabela é composta por **campos** (colunas) e **registros** (linhas ou tuplas)
 ### Tipos primitivos de um campo
 O campo de uma tabela deve estar relacionado a um tipo primitivo. 
 Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos com diferentes capacidade de armazenamento na memória (quantidade de bytes), para otimizar o dimensionamento da estrutura da tabela;
@@ -53,15 +55,21 @@ Caso a ordem de inserção dos dados seja a mesma ordem em que os campos foram c
 Use o comando `select * from nome_tabela;` para mostrar todos os registros da tabela.
 
 ## Alterando a estrutura da tabela
-Veja como usar [alter](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/04-alter/alterando%20campos.sql) para criar, apagar, e alterar o tipo ou nome do campo ou de uma tabela.
-* Adicione um novo campo na última posição da tabela com o comando; `alter table nome_tabela add column nome_campo tipo-do-campo;`.
-* exclui o campo da tabela; `alter table nome_tabela drop column nome_campo`;
-* Insere um novo campo após o campo **profisão**; `alter table nome_tabela add column nome_campo tipo-do-campo after \`profissão`;`.
-* Insere um novo campo na primeira posição da tabela; `alter table nome_tabela add column nome_campo tipo-do-campo first;`.
-* Altera o tipo e constrains do campo de uma tabela; `alter table nome_tabela modify column nome_campo tipo-do-campo tipo_constrain;`.
-* Altera o nome do campo de uma tabela; `alter table nome_tabela change column nome_campo_antigo nome_campo_novo tipo-do-campo tipo_constrain;`.
+* Veja como usar [alter](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/04-alter/alterando%20campos.sql) para criar, apagar, e alterar o tipo ou nome do campo ou de uma tabela.
+   * Adicione um novo campo na última posição da tabela com o comando; `alter table nome_tabela add column nome_campo tipo-do-campo;`.
+   * exclui o campo da tabela; `alter table nome_tabela drop column nome_campo`;
+   * Insere um novo campo após o campo **profisão**; `alter table nome_tabela add column nome_campo tipo-do-campo after \`profissão`;`.
+   * Insere um novo campo na primeira posição da tabela; `alter table nome_tabela add column nome_campo tipo-do-campo first;`.
+   * Altera o tipo e constrains do campo de uma tabela; `alter table nome_tabela modify column nome_campo tipo-do-campo tipo_constrain;`.
+   * Altera o nome do campo de uma tabela; `alter table nome_tabela change column nome_campo_antigo nome_campo_novo tipo-do-campo tipo_constrain;`.
 
-Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/04-alter/alterando%20tabelas.sql);
-* Como renomear o nome da tabela como comando; `alter table nome_antigo_da_tabela rename to nome_novo_da_tabela;`.
-* Criar uma tabela somente se ele ainda não existe; `create table if not exists nome_tabela (campos) default charset = 'utf8';`. 		
+* Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/04-alter/alterando%20tabelas.sql);
+   * Como renomear o nome da tabela como comando; `alter table nome_antigo_da_tabela rename to nome_novo_da_tabela;`.
+   * Criar uma tabela somente se ele ainda não existir; `create table if not exists nome_tabela (campos);`.
+   * Não permitir adicionar dois valores iguais em um campo, usando a constrain `unique`.
+   * Permitir somente números positivos com a constrain `unsigned`.
+   * Adicionar uma chave primária; `alter table nome_tabela add primary key(nome_campo);`.
+   * Apaga a tabela caso ela exista; `drop table if exists nome_tabela;`.
+
+* Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/05-manipulando%20registros(linhas)/ex.sql) como alterar os registros de uma tabela
 
