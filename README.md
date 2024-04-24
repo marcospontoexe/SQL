@@ -1,8 +1,8 @@
 # SQL
 SQL, ou Structured Query Language (Linguagem de Consulta Estruturada), é uma linguagem de programação padrão para gerenciamento de banco de dados relacionais.
 
-## Criando um banco
-Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/01-criando%20db/01-.sql) como criar, apagar, mostrar e abrir um banco de dados com os comandos; `create database`, `drop database`, `show databases`, e `use`. Ainda no mesmo exemplo veja como criar, mostrar e abrir uma tabela como os comandos; `create table`, `show table` e `describe`, e os possíveis tipos de **campos** contidos em uma tabela.
+## Criando um banco de dados
+Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/01-criando%20db/01-.sql) como criar, apagar, mostrar e abrir um banco de dados com os comandos; `create database nome_banco_de_dados;`, `drop database nome_banco_de_dados;`, `show databases;`, e `use nome_banco_de_dados;`. Ainda no mesmo exemplo veja como criar, mostrar e abrir uma tabela como os comandos; `create table nome_tabela(campos);`, `show table;` e `describe nome_tabela;`, e os possíveis tipos de **campos** contidos em uma tabela.
 ### Tipos primitivos de um campo
 O campo de uma tabela deve estar relacionado a um tipo primitivo. 
 Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos com diferentes capacidade de armazenamento na memória (quantidade de bytes), para otimizar o dimensionamento da estrutura da tabela;
@@ -44,4 +44,12 @@ Veja no [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20
     * Armazenar apenas um tipo de valor predeterminado em um campo.
     * Armazenar um valor predeterminado em um campo, caso não seja incluso nenhum valor novo.
     * Chave primária.
+      
+## Inserindo dados na tabela
+Para inserir dados em uma tabela é necessário que o banco de dados esteja aberto, use o comando `use nome_banco_de_dados;` para abrir o banco de dados.
+Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/03-insert%20to/exemplo.sql) como insirir dados nas tabelas usando o comando `insert into nome_tabela(campos) values (valores);`.
+Caso a ordem de inserção dos dados seja a mesma ordem em que os campos foram criados, não é preciso inserir o id dos campos no comando; `insert into nome_tabela values (valores);`.
+É possível inserir vários valores em um único mando; `insert into nome_tabela values (valores), (valores), (valores);`.
+Use o comando `select * from nome_tabela;` para mostrar todos os registros da tabela.
+
 
