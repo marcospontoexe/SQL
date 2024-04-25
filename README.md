@@ -88,9 +88,30 @@ Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso
 * Seleciona todos os campos da tabela em ordem crescente a partir de um campo; `select * from nome_tabela order by nome_campo;`.
 * Seleciona todos os campos da tabela em ordem decrescente a partir de um campo; `select * from nome_tabela order by nome_campo desc;`.
 * Seleciona alguns campos da tabela, e ordena de forma crescente a partir de um campo primario e depois a partir de um campo secundário; `select nome_campo_1, nome_campo_2, nome_campo_3  from nome_tabela order by nome_campo_primário, nome_campo_secundário;`.
-* Seleciona todos os campos, mas apenas os registros solicitados pelo parâmetro *where*, ordenando a partir de um campo; `select * from nome_tabela where nome_registro = 'nome_do_valor' 
- order by nome_campo;`.
-* Seleciona todos os campos, mas apenas os registros solicitados pelo parâmetro *where*; `select * from nome_tabela where nome_registro > 'nome_do_valor';`. Nesse caso é usado o operador relacional **>** (maior que) como condição.
+* Seleciona todos os campos, mas apenas os registros solicitados pelo parâmetro *where*, ordenando a partir de um campo; `select * from nome_tabela where nome_registro = 'nome_do_valor' order by nome_campo;`.
+* Seleciona todos os campos, mas apenas os registros solicitados pelo parâmetro *where*; `select * from nome_tabela where nome_registro > 'nome_do_valor';`. Nesse caso é usado o operador relacional **>** (maior que) como condição, pode ser usado outros operadores (<, >, =, <=, >=, !=, between, and, or, in, like, not).
+
+WildCards podem ser usados junto com o parâmetro like para selecionar Strings a partir de determinada letra. O sinal de **%** é um caracter coringa que substitui qualquer cadeia de string, até mesmo string vazia. O sinal **_** exige um caractere.
+* Seleciona todos os registros que tenha 'a' na penúltima letra no campo nome, e que obrigatoriamente possua mais uma letra após o 'a'; `select * from nome_tabela where nome like '%a_';`.
+* Seleciona registros que não tenha 'a' no campo nome; `select * from nome_tabela where nome not like '%a%';`
+* Seleciona os registro do campo "nacionaliade" sem repetição; `select distinct nacionalidade from nome_tabela;`.
+
+### Funções de agregação
+Funções de agregação são funções em bancos de dados relacionais que operam em um conjunto de valores e retornam um único valor resumido.
+* Seleciona a **quantidade total** de registro da tabela; `select count(*) from nome_tabela;`.
+* Seleciona o **maior valor** de determinado campo da tabela; `select max(nome_campo) from nome_tabela;`.
+* Seleciona o **menor valor** de determinado campo da tabela; `select min(nome_campo) from nome_tabela;`.
+* Seleciona a **soma** de determinado campo da tabela; `select sum(nome_campo) from nome_tabela;`.
+* Seleciona a **média** de determinado campo da tabela; `select avg(nome_campo) from nome_tabela;`.
+
+### Funções de agrupamento
+* Agrupa os registro em comum do campo 'ano'; `select ano from nome_tabela group by ano;`.
+* Seleciona também a quantidade de registros em cada grupo, para o campo 'ano'; `select ano, count(*) from cursos group by ano;`.
+* Agrupa os registro em comum do campo 'ano', mas que tenha uma quantidade maior do que 3; `select ano, count(*) from nome_tabela group by ano having count(*) > 3;`.
+* Seleciona todos os registro agrupados do campo 'carga' em que os registros do campo 'carga' sejam maior do que a média (avg) desse campo; `select carga, count(*) from cursos group by carga having carga > (select avg(carga) from cursos);`.
+
+
+Veja nesse [repositório](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/07-select/exerc%C3%ADcios.sql) alguns exercícios propostos. [Baixe o Dump](https://github.com/marcospontoexe/SQL/tree/main/MySQL/Curso%20em%20v%C3%ADdeo/07-select) do banco de dados para desenvolvimento dos exercícios propostos.
 
       
 
