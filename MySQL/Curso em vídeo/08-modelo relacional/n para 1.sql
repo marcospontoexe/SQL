@@ -13,7 +13,7 @@ add foreign key (cursopreferido)  # transformando 'cursopreferido' em chave estr
 references cursos(idcurso);			#ligando a chave primária (idcurso) da entidade 'cursos', com a chave estrangeira da entidade 'gafanhotos'
 
 #relacionado atributos das duas instâncias
-update gafanhotos set cursopreferido = 6 where id = 1;	#a chave estrangeira da chave primária 1 (Daniel Morais), é relacionada com a chave primária 6 (MySQL) da instancia 'cursos'
+update gafanhotos set cursopreferido = 6 where id = 1;	#a chave primária 1 (Daniel Morais) da tabela dominante, é relacionada com a chave primária 6 (MySQL) da instancia 'cursos'
 
 select nome, cursopreferido from gafanhotos;		#mostra o usuário e a chave estrangeira
 
