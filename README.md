@@ -149,22 +149,35 @@ Para conectar as tabelas é preciso criar um novo campo (atributo) na entidade d
 * Criando um novo campo na entidade dominante; `alter table entidade_dominante add column atributo_que_receberá_chave_estrangeira;`.
 * Adicionando a chave estrangeira à entidade dominante com o **add foreign key**; `alter table entidade_dominante add foreign key (atributo_que_recebera_chave_estrangeira) references tabela_secundária(chave_primária_da_tabela_secundária);`.
 * Relacionado atributos das duas instâncias; `update entidade_dominante set atributo_que_receberá_chave_estrangeira = 'valor' where cahve_primária = entidade_a_receber_valor;`.
-* Selecionando os atributos relacionados das entidade dominante da entidade secundária, com o comando **inner join**; `select entidade_dominante.atributo_1, entidade_dominante.atributo_2, entidade_secundária.atributo_1 from entidade_dominante inner join entidade_secundária on chave_primária = chave_estrangeira;`.
+* Selecionando os registros relacionados das entidade dominante da entidade secundária, com o comando **inner join**; `select entidade_dominante.atributo_1, entidade_dominante.atributo_2, entidade_secundária.atributo_1 from entidade_dominante inner join entidade_secundária on chave_primária = chave_estrangeira;`.
 * É possível usar o **left out join** ou **right out join** para selecionar tanto os atributos que fazem parte de relação entre as planilhas, quanto os atributos sem relação.
 
 ### Conectando as entidades de um relacionamento n:n
 Veja [nesse exemplo]([https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/08-modelo%20relacional/n%20para%201.sql](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/08-modelo%20relacional/n%20para%20n.sql) como conectar tabelas de relacionamento n:n através das chaves primária e estrangeira.
 * Para conectar as tabelas n:n é necessário criar uma tabela de associação;
+   ```
+   create table tabela_de_associacao(
+       id int not null auto_increment,		# atributo para ser usada como chave primária
+       data date,				# atributo adicional
+       idprimario int,			#atributo para ser usada como chave estrangeira da instancia primária.
+       idsecundario int,			#atributo para ser usada como chave estrangeira da instancia secundária.
+       primary key(id),			#transformando a variável 'id' em chave primária
+       foreign key (idprimario) references instancia_primaria(campo_da_chave_primaria),	# transforma a chave primária da instância primária em chave estrangeira da tabela de associação
+       foreign key (idsecundario) references instancia_secundaria(campo_da_chave_primaria)				# transforma a chave primária da instância secundária em chave estrangeira da tabela de associação
+   )default charset = utf8;
+   ```
+* Relacionando atributos entre as tabelas; `insert into tabela_de_associacao values(default, '2020-11-15', 1, 2);`.
+* Usando o **inner join** para selecionar os registros relacionados das entidade primária e entidade secundária; 
 
-```
-create table tabela_de_associacao(
-    id int auto_increment,		# atributo para ser usada como chave primária
-    data date,				# atributo adicional
-    idprimario int,			#atributo para ser usada como chave estrangeira da instancia primária.
-    idsecundario int,			#atributo para ser usada como chave estrangeira da instancia secundária.
-    primary key(id),			#transformando a variável 'id' em chave primária
-    foreign key (idprimario) references instancia_primaria(campo_da_chave_primaria),	# transforma a chave primária da instância primária em chave estrangeira da tabela de associação
-    foreign key (idsecundario) references instancia_secundaria(campo_da_chave_primaria)				# transforma a chave primária da instância secundária em chave estrangeira da tabela de associação
-)default charset = utf8;
-```
+
+#relacionando a entiade cursos e gafanhoto com a entidade de conexão
+select instancia_primaria.nome, tabela_de_associacao.data, instancia_secundaria.nome
+from instancia_primaria join tabela_de_associacao                                       #juntando a instancia primária com a tabela de associoação
+on instancia_primaria.id = tabela_de_associacao.idprimario		                         #fazendo a conexão entre as duas instancias
+join cursos as c		#juntando a instancia cursos com a instância de conexão
+on c.idcurso = ga.idcursos		#fazendo a conexão entre as duas instancias
+order by g.nome;
+
+		
+
 
