@@ -144,9 +144,9 @@ Os relacionamentos entre tabelas são classificados de acordo com a cardinalidad
 ### Conectando as entidades
 Para conectar as tabelas é preciso criar um novo campo (atributo) na entidade dominante. Esse novo campo deve ser do mesmo tipo e tamanho da chave primária.
 * Criando um novo campo na entidade dominante; `alter table entidade_dominante add column atributo_que_receberá_chave_estrangeira;`.
-* Adicionando a chave estrangeira à entidade dominante; `alter table entidade_dominante add foreign key (atributo_que_recebera_chave_estrangeira) references tabela_secundária(chave_primária_da_tabela_secundária);`.
+* Adicionando a chave estrangeira à entidade dominante com o **add foreign key**; `alter table entidade_dominante add foreign key (atributo_que_recebera_chave_estrangeira) references tabela_secundária(chave_primária_da_tabela_secundária);`.
 * Relacionado atributos das duas instâncias; `update entidade_dominante set atributo_que_receberá_chave_estrangeira = 'valor' where cahve_primária = entidade_a_receber_valor;`.
-* Selecionando os atributos relacionados das entidade dominante da entidade secundária; `select entidade_dominante.atributo_1, entidade_dominante.atributo_2, entidade_secundária.atributo_1 from entidade_dominante join entidade_secundária on chave_primária = chave_estrangeira;`.
+* Selecionando os atributos relacionados das entidade dominante da entidade secundária, com o comando **inner join**; `select entidade_dominante.atributo_1, entidade_dominante.atributo_2, entidade_secundária.atributo_1 from entidade_dominante inner join entidade_secundária on chave_primária = chave_estrangeira;`.
 
 
 
