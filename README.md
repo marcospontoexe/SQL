@@ -5,6 +5,7 @@ SQL, ou Structured Query Language (Linguagem de Consulta Estruturada), é uma li
 Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/01-criando%20db/01-.sql) como criar, apagar, mostrar e abrir um banco de dados com os comandos; `create database nome_banco_de_dados;`, `drop database nome_banco_de_dados;`, `show databases;`, e `use nome_banco_de_dados;`. Ainda no mesmo exemplo veja como criar, mostrar as tabelas do banco de dados, e ver a descrição de uma tabela como os comandos; `create table nome_tabela(campos);`, `show table;` e `describe nome_tabela;`, e os possíveis tipos de **campos** contidos em uma tabela.
 
 Uma tabela é composta por **campos** (colunas) e **registros** (linhas ou tuplas)
+
 ### Tipos primitivos de um campo
 O campo de uma tabela deve estar relacionado a um tipo primitivo. 
 Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos com diferentes capacidade de armazenamento na memória (quantidade de bytes), para otimizar o dimensionamento da estrutura da tabela;
@@ -116,16 +117,27 @@ Veja nesse [repositório](https://github.com/marcospontoexe/SQL/blob/main/MySQL/
 ## Modelo relacional
 No modelo relacional, os dados são organizados em tabelas (também conhecidas como relações). Cada tabela é composta por linhas e colunas, onde cada linha representa uma entidade e cada coluna representa um atributo dessa entidade. As tabelas são inter-relacionadas por meio de chaves estrangeiras que estabelecem relacionamentos entre os dados.
 
+Entidade dominante deve possuir uma chave primária e também a chave estrangeira (chave primária da entidade secundária).
+
+Uma chave estrangeira é uma coluna (ou conjunto de colunas) em uma tabela que estabelece um relacionamento com uma chave primária em outra tabela. Elas são usadas para vincular dados entre tabelas.
+
+A chave prímária que virou chave estangeira não precisa ter o mesmo nome, mas precisa ser do mesmo tipo e tamnaho (TinyInt, Float(), VarChar(), Text, DateTime...).
+
 ### Classificação entre os relacionamentos
 Os relacionamentos entre tabelas são classificados de acordo com a cardinalidade e a opcionalidade do relacionamento. A cardinalidade refere-se ao número de entidades ou linhas em uma tabela que podem estar associadas a uma ou mais entidades em outra tabela. A opcionalidade indica se a existência de uma entidade em uma tabela está condicionada à existência de uma entidade relacionada em outra tabela.
+
 * Relacionamento Um para Um (1:1):
      * Neste tipo de relacionamento, uma linha em uma tabela está associada a no máximo uma linha em outra tabela e vice-versa.
      * Geralmente, é implementado adicionando uma chave estrangeira em uma das tabelas que referencia a chave primária da outra tabela.
+     * É possível juntar as duas tabelas em uma só, desde que não faça sentido manter os dados separados em duas tabelas.
+     * Qualquer uma das tabelas pode ser escolhida como entidade dominante.
        
  * Relacionamento Um para Muitos (1:N):
      * Neste tipo de relacionamento, uma linha em uma tabela pode estar associada a várias linhas em outra tabela, mas uma linha na segunda tabela está associada a no máximo uma linha na primeira tabela.
+     * A tabela com multiplas entidades que se relacionam com apenas uma entidade da outra tabela (o lado N), deve receber a chave estrangeira.
 
 * Relacionamento Muitos para Muitos (N:N):
     * Neste tipo de relacionamento, várias linhas em uma tabela podem estar associadas a várias linhas em outra tabela.
     * Para implementar esse tipo de relacionamento em bancos de dados relacionais, geralmente é necessário criar uma tabela de associação (ou tabela intermediária) que mapeia as relações entre as duas tabelas principais.
+    * A tabela de associação tem seus atributos próprios e deve receber as chaves estrangeiras (que são as chaves primárias das outras tabelas).
 
