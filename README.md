@@ -121,7 +121,7 @@ No modelo relacional, os dados são organizados em tabelas (também conhecidas c
 
 Uma **chave estrangeira** é uma coluna (ou conjunto de colunas) em uma tabela que estabelece um relacionamento com uma chave primária em outra tabela. Elas são usadas para vincular dados entre tabelas.
 
-A chave primária que virou chave estangeira não precisa ter o mesmo nome, mas precisa ser do mesmo tipo e tamnaho (TinyInt, Float(), VarChar(), Decimal(), Text, DateTime...).
+A chave primária que virou chave estangeira não precisa ter o mesmo nome, mas precisa ser do mesmo tipo e tamnaho (*TinyInt, Float(), VarChar(), Decimal(), Text, DateTime...*).
 
 ### Classificação entre os relacionamentos
 Os relacionamentos entre tabelas são classificados de acordo com a cardinalidade e a opcionalidade do relacionamento. A cardinalidade refere-se ao número de entidades ou linhas em uma tabela que podem estar associadas a uma ou mais entidades em outra tabela. A opcionalidade indica se a existência de uma entidade em uma tabela está condicionada à existência de uma entidade relacionada em outra tabela.
