@@ -117,9 +117,9 @@ Veja nesse [repositório](https://github.com/marcospontoexe/SQL/blob/main/MySQL/
 ## Modelo relacional
 No modelo relacional, os dados são organizados em tabelas (também conhecidas como relações). Cada tabela é composta por linhas e colunas, onde cada linha representa uma entidade e cada coluna representa um atributo dessa entidade. As tabelas são inter-relacionadas por meio de chaves estrangeiras que estabelecem relacionamentos entre os dados.
 
-Entidade dominante deve possuir uma chave primária e também a chave estrangeira (chave primária da entidade secundária).
+**Entidade dominante** deve possuir uma chave primária e também a chave estrangeira (chave primária da entidade secundária).
 
-Uma chave estrangeira é uma coluna (ou conjunto de colunas) em uma tabela que estabelece um relacionamento com uma chave primária em outra tabela. Elas são usadas para vincular dados entre tabelas.
+Uma **chave estrangeira** é uma coluna (ou conjunto de colunas) em uma tabela que estabelece um relacionamento com uma chave primária em outra tabela. Elas são usadas para vincular dados entre tabelas.
 
 A chave primária que virou chave estangeira não precisa ter o mesmo nome, mas precisa ser do mesmo tipo e tamnaho (TinyInt, Float(), VarChar(), Decimal(), Text, DateTime...).
 
