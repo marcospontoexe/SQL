@@ -170,14 +170,14 @@ Veja [nesse exemplo]([https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curs
 * Usando o **inner join** para selecionar os registros relacionados das entidade primária e entidade secundária; 
 
 
-#relacionando a entiade cursos e gafanhoto com a entidade de conexão
+```
 select instancia_primaria.nome, tabela_de_associacao.data, instancia_secundaria.nome
 from instancia_primaria join tabela_de_associacao                                       #juntando a instancia primária com a tabela de associoação
 on instancia_primaria.id = tabela_de_associacao.idprimario		                         #fazendo a conexão entre as duas instancias
 join cursos as c		#juntando a instancia cursos com a instância de conexão
 on c.idcurso = ga.idcursos		#fazendo a conexão entre as duas instancias
 order by g.nome;
-
+```
 		
 
 
