@@ -121,7 +121,7 @@ Entidade dominante deve possuir uma chave primária e também a chave estrangeir
 
 Uma chave estrangeira é uma coluna (ou conjunto de colunas) em uma tabela que estabelece um relacionamento com uma chave primária em outra tabela. Elas são usadas para vincular dados entre tabelas.
 
-A chave prímária que virou chave estangeira não precisa ter o mesmo nome, mas precisa ser do mesmo tipo e tamnaho (TinyInt, Float(), VarChar(), Text, DateTime...).
+A chave primária que virou chave estangeira não precisa ter o mesmo nome, mas precisa ser do mesmo tipo e tamnaho (TinyInt, Float(), VarChar(), Decimal(), Text, DateTime...).
 
 ### Classificação entre os relacionamentos
 Os relacionamentos entre tabelas são classificados de acordo com a cardinalidade e a opcionalidade do relacionamento. A cardinalidade refere-se ao número de entidades ou linhas em uma tabela que podem estar associadas a uma ou mais entidades em outra tabela. A opcionalidade indica se a existência de uma entidade em uma tabela está condicionada à existência de uma entidade relacionada em outra tabela.
@@ -140,4 +140,8 @@ Os relacionamentos entre tabelas são classificados de acordo com a cardinalidad
     * Neste tipo de relacionamento, várias linhas em uma tabela podem estar associadas a várias linhas em outra tabela.
     * Para implementar esse tipo de relacionamento em bancos de dados relacionais, geralmente é necessário criar uma tabela de associação (ou tabela intermediária) que mapeia as relações entre as duas tabelas principais.
     * A tabela de associação tem seus atributos próprios e deve receber as chaves estrangeiras (que são as chaves primárias das outras tabelas).
-
+ 
+### Conectando as entidades
+Para conectar as tabelas é preciso criar um novo campo (atributo) na entidade dominante. Esse novo campo deve ser do mesmo tipo e tamanho da chave primária.
+* Criando um novo campo na entidade dominante; `alter table entidade_dominante add column atributo_que_recebera_chave_estrangeira;`.
+* Adicionando a chave estrangeira à entidade dominante; `alter table entidade_dominante add foreign key (atributo_que_recebera_chave_estrangeira) references tabela_secundária(chave_primária_da_tabela_secundária);`.
