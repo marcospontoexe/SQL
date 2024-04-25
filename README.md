@@ -6,7 +6,7 @@ Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso
 
 Uma tabela é composta por **campos** (colunas) e **registros** (linhas ou tuplas)
 
-Caso precise criar um campo que contenha caracteres especiais, deve ficar entre crase; `\`profissão``.
+Caso precise criar um campo que contenha caracteres especiais, deve ficar entre crase; `\`profissão\``.
 
 ### Tipos primitivos de um campo
 O campo de uma tabela deve estar relacionado a um tipo primitivo. 
