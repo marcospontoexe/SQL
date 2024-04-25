@@ -148,6 +148,7 @@ Para conectar as tabelas é preciso criar um novo campo (atributo) na entidade d
 * Adicionando a chave estrangeira à entidade dominante com o **add foreign key**; `alter table entidade_dominante add foreign key (atributo_que_recebera_chave_estrangeira) references tabela_secundária(chave_primária_da_tabela_secundária);`.
 * Relacionado atributos das duas instâncias; `update entidade_dominante set atributo_que_receberá_chave_estrangeira = 'valor' where cahve_primária = entidade_a_receber_valor;`.
 * Selecionando os atributos relacionados das entidade dominante da entidade secundária, com o comando **inner join**; `select entidade_dominante.atributo_1, entidade_dominante.atributo_2, entidade_secundária.atributo_1 from entidade_dominante inner join entidade_secundária on chave_primária = chave_estrangeira;`.
+* É possível usar o **left out join** ou **right out join** para selecionar tanto os atributos que fazem parte de relação entre as planilhas, quanto os atributos sem relação.
 
 
 
