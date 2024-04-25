@@ -142,6 +142,7 @@ Os relacionamentos entre tabelas são classificados de acordo com a cardinalidad
     * A tabela de associação tem seus atributos próprios e deve receber as chaves estrangeiras (que são as chaves primárias das outras tabelas).
  
 ### Conectando as entidades
+Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/08-modelo%20relacional/n%20para%201.sql) como conectar tabelas através das chaves primária e estrangeira. 
 Para conectar as tabelas é preciso criar um novo campo (atributo) na entidade dominante. Esse novo campo deve ser do mesmo tipo e tamanho da chave primária.
 * Criando um novo campo na entidade dominante; `alter table entidade_dominante add column atributo_que_receberá_chave_estrangeira;`.
 * Adicionando a chave estrangeira à entidade dominante com o **add foreign key**; `alter table entidade_dominante add foreign key (atributo_que_recebera_chave_estrangeira) references tabela_secundária(chave_primária_da_tabela_secundária);`.
