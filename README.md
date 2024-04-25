@@ -116,5 +116,16 @@ Veja nesse [repositório](https://github.com/marcospontoexe/SQL/blob/main/MySQL/
 ## Modelo relacional
 No modelo relacional, os dados são organizados em tabelas (também conhecidas como relações). Cada tabela é composta por linhas e colunas, onde cada linha representa uma entidade e cada coluna representa um atributo dessa entidade. As tabelas são inter-relacionadas por meio de chaves estrangeiras que estabelecem relacionamentos entre os dados.
 
-      
+### Classificação entre os relacionamentos
+Os relacionamentos entre tabelas são classificados de acordo com a cardinalidade e a opcionalidade do relacionamento. A cardinalidade refere-se ao número de entidades ou linhas em uma tabela que podem estar associadas a uma ou mais entidades em outra tabela. A opcionalidade indica se a existência de uma entidade em uma tabela está condicionada à existência de uma entidade relacionada em outra tabela.
+* Relacionamento Um para Um (1:1):
+     * Neste tipo de relacionamento, uma linha em uma tabela está associada a no máximo uma linha em outra tabela e vice-versa.
+     * Geralmente, é implementado adicionando uma chave estrangeira em uma das tabelas que referencia a chave primária da outra tabela.
+       
+ * Relacionamento Um para Muitos (1:N):
+     * Neste tipo de relacionamento, uma linha em uma tabela pode estar associada a várias linhas em outra tabela, mas uma linha na segunda tabela está associada a no máximo uma linha na primeira tabela.
+
+* Relacionamento Muitos para Muitos (N:N):
+    * Neste tipo de relacionamento, várias linhas em uma tabela podem estar associadas a várias linhas em outra tabela.
+    * Para implementar esse tipo de relacionamento em bancos de dados relacionais, geralmente é necessário criar uma tabela de associação (ou tabela intermediária) que mapeia as relações entre as duas tabelas principais.
 
