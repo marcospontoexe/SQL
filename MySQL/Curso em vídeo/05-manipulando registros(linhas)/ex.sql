@@ -24,8 +24,8 @@ insert into cursos values								#inserindo registros (linhas) na tabela
 
 #altera PJP para PHP
 update cursos
-set nome = 'PHP'	#seleciona a coluna
-where id_curso = '1'	#seleciona a linha
+set nome = 'PHP'	#seleciona a coluna e o valor a ser recebido
+where id_curso = '1'	#seleciona a linha a ser modificada
 limit 1;				#permite alterar apenas um linha, como medida de seguraça
 
 update cursos
@@ -39,6 +39,7 @@ where ano = '2000'					#usa o ano como parâmetro para realizar as alterações,
 limit 2;
 
 delete from cursos	
-where id_curso = '5';			#apaga o registro com 'id' igual a cinco
+where id_curso = '5'			#apaga o registro com 'id' igual a cinco
+limit 1;				#permite apagar apenas um linha, como medida de seguraça
 
 truncate cursos; 			#apaga todos os registros da tabela, mas não apaga os campos

@@ -7,12 +7,13 @@ values
 ('godofredo', '1990-11-25', 'M', '60.1', '1.72', 'Brasil');	 #o campo data é ano-mês-dia
 
 #é possível usar o o DEFAULT para um dados de um campo;
+#caso o campo "id" seja auto_increment, não é necessário informar o valor
 insert into pessoa
 (id, nome, nascimento, sexo, peso, altura, nascionalidade)
 values
 (default, 'godofredo', '1990-11-25', 'M', '60.1', '1.72', default);	 
 
-#insere os dados na ordem em que os campos foram criados;
+#Caso a ordem de inserção dos dados seja a mesma ordem em que os campos foram criados, não é preciso inserir os campos
 insert into pessoa values (default, 'pedro', '1990-07-21', 'M', '40.1', '1.1', 'Espanh');	
 
 #inserindo vários valores ao mesmo tempo;

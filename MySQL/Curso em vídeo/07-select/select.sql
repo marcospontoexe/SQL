@@ -1,4 +1,4 @@
-select * from cursos	#mostra todos os registros de todos os campos, ordenado pela primary key
+select * from cursos;	#mostra todos os registros de todos os campos, ordenado pela primary key
 
 select * from cursos
 order by nome;		#mostra todos os registros de todos os campos, ordenado pelo campo 'nome'
