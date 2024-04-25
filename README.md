@@ -173,10 +173,10 @@ Veja [nesse exemplo]([https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curs
 ```
 select instancia_primaria.nome, tabela_de_associacao.data, instancia_secundaria.nome
 from instancia_primaria join tabela_de_associacao                                       #juntando a instancia primária com a tabela de associoação
-on instancia_primaria.id = tabela_de_associacao.idprimario		                         #fazendo a conexão entre as duas instancias
-join cursos as c		#juntando a instancia cursos com a instância de conexão
-on c.idcurso = ga.idcursos		#fazendo a conexão entre as duas instancias
-order by g.nome;
+on instancia_primaria.id = tabela_de_associacao.idprimario		                #fazendo a conexão entre as chaves primária e estrangeira
+join instancia_secundaria								#juntando a instancia secundária com a tabela de associoação
+on c.idcurso = ga.idcursos								#fazendo a conexão entre as as chaves primária e estrangeira
+order by instancia_primaria.nome;									#ordena o campo "nome" da instância primária em ordem crescente
 ```
 		
 
