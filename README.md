@@ -6,6 +6,8 @@ Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso
 
 Uma tabela é composta por **campos** (colunas) e **registros** (linhas ou tuplas)
 
+Caso precise criar um campo que contenha caracteres especiais, deve ficar entre crase; `\`profissão``.
+
 ### Tipos primitivos de um campo
 O campo de uma tabela deve estar relacionado a um tipo primitivo. 
 Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos com diferentes capacidade de armazenamento na memória (quantidade de bytes), para otimizar o dimensionamento da estrutura da tabela;
@@ -54,7 +56,7 @@ Veja no [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20
 ## Inserindo dados na tabela
 Para inserir dados em uma tabela é necessário que o banco de dados esteja aberto, use o comando `use nome_banco_de_dados;` para abrir o banco de dados.
 Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/03-insert%20to/exemplo.sql) como insirir dados nas tabelas usando o comando `insert into nome_tabela(campos) values (valores);`.
-Os dados a serem inseridos na tabela sempre devem ficar entre aspas simples.
+Os dados a serem inseridos na tabela sempre devem ficar entre aspas simples, para números isso não é obrigatório.
 Caso a ordem de inserção dos dados seja a mesma ordem em que os campos foram criados, não é preciso inserir o id dos campos no comando; `insert into nome_tabela values (valores);`.
 É possível inserir vários valores em um único mando; `insert into nome_tabela values (valores), (valores), (valores);`.
 
@@ -141,7 +143,7 @@ Os relacionamentos entre tabelas são classificados de acordo com a cardinalidad
     * Para implementar esse tipo de relacionamento em bancos de dados relacionais, geralmente é necessário criar uma tabela de associação (ou tabela intermediária) que mapeia as relações entre as duas tabelas principais.
     * A tabela de associação tem seus atributos próprios e deve receber as chaves estrangeiras (que são as chaves primárias das outras tabelas).
  
-### Conectando as entidades
+### Conectando as entidades de um relacionamento 1:1 ou 1:n
 Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/08-modelo%20relacional/n%20para%201.sql) como conectar tabelas através das chaves primária e estrangeira. 
 Para conectar as tabelas é preciso criar um novo campo (atributo) na entidade dominante. Esse novo campo deve ser do mesmo tipo e tamanho da chave primária.
 * Criando um novo campo na entidade dominante; `alter table entidade_dominante add column atributo_que_receberá_chave_estrangeira;`.
@@ -150,5 +152,20 @@ Para conectar as tabelas é preciso criar um novo campo (atributo) na entidade d
 * Selecionando os atributos relacionados das entidade dominante da entidade secundária, com o comando **inner join**; `select entidade_dominante.atributo_1, entidade_dominante.atributo_2, entidade_secundária.atributo_1 from entidade_dominante inner join entidade_secundária on chave_primária = chave_estrangeira;`.
 * É possível usar o **left out join** ou **right out join** para selecionar tanto os atributos que fazem parte de relação entre as planilhas, quanto os atributos sem relação.
 
+### Conectando as entidades de um relacionamento n:n
+Veja [nesse exemplo]([https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/08-modelo%20relacional/n%20para%201.sql](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/08-modelo%20relacional/n%20para%20n.sql) como conectar tabelas de relacionamento n:n através das chaves primária e estrangeira.
+* Para conectar as tabelas n:n é necessário criar uma tabela de associação;
 
+  ```
+  create table tabela_de_associação(
+	id int auto_increment,		#variável para ser usada como chave primária
+    data date,
+    idgafanhoto int,	#variável para ser usada como chave estrangeira da instancia 'gafanhotos'. Precisa ser do mesmo tipo, tamanho e constrain que a chave primária
+    idcursos int,		#variável para ser usada como chave estrangeira da instancia 'cursos'. Precisa ser do mesmo tipo, tamanho e constrain que a chave primária
+    primary key(id),	#transformando a variável 'id' em chave primária
+	foreign key (idgafanhoto) references gafanhotos(id),	# transforma a variável em chave estrangeira da tabela gafanhotos
+	foreign key (idcursos) references cursos(idcursos)		# transforma a variável em chave estrangeira da tabela cursos
+
+)default charset = utf8;
+  ```
 
