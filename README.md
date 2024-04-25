@@ -84,7 +84,7 @@ Use o comando `select * from nome_tabela;` para selecionar todos os campos da ta
     * Apaga todos os registro de uma tabela; `truncate nome_tabela;`.
  
 ## Obtendo dados da tabela
-Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/07-select/select.sql) como usar o comando `select` para selecionar dados da tabela.
+Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/07-select/select.sql) como usar o comando **select** para selecionar dados da tabela.
 * Seleciona todos os campos da tabela em ordem crescente a partir do primary key; `select * from nome_tabela;`.
 * Seleciona todos os campos da tabela em ordem crescente a partir de um campo; `select * from nome_tabela order by nome_campo;`.
 * Seleciona todos os campos da tabela em ordem decrescente a partir de um campo; `select * from nome_tabela order by nome_campo desc;`.
