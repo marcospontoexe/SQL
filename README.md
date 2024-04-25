@@ -157,13 +157,13 @@ Veja [nesse exemplo]([https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curs
 * Para conectar as tabelas n:n é necessário criar uma tabela de associação;
    ```
    create table tabela_de_associacao(
-       id int not null auto_increment,		# atributo para ser usada como chave primária
-       data date,				# atributo adicional
+       id int not null auto_increment,	# atributo para ser usada como chave primária
+       data date,			# atributo adicional
        idprimario int,			#atributo para ser usada como chave estrangeira da instancia primária.
-       idsecundario int,			#atributo para ser usada como chave estrangeira da instancia secundária.
+       idsecundario int,		#atributo para ser usada como chave estrangeira da instancia secundária.
        primary key(id),			#transformando a variável 'id' em chave primária
-       foreign key (idprimario) references instancia_primaria(campo_da_chave_primaria),	# transforma a chave primária da instância primária em chave estrangeira da tabela de associação
-       foreign key (idsecundario) references instancia_secundaria(campo_da_chave_primaria)				# transforma a chave primária da instância secundária em chave estrangeira da tabela de associação
+       foreign key (idprimario) references instancia_primaria(campo_da_chave_primaria),		# transforma a chave primária da instância primária em chave estrangeira da tabela de associação
+       foreign key (idsecundario) references instancia_secundaria(campo_da_chave_primaria)	# transforma a chave primária da instância secundária em chave estrangeira da tabela de associação
    )default charset = utf8;
    ```
 * Relacionando atributos entre as tabelas; `insert into tabela_de_associacao values(default, '2020-11-15', 1, 2);`.
@@ -172,11 +172,11 @@ Veja [nesse exemplo]([https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curs
 
 ```
 select instancia_primaria.nome, tabela_de_associacao.data, instancia_secundaria.nome
-from instancia_primaria join tabela_de_associacao                                       #juntando a instancia primária com a tabela de associoação
-on instancia_primaria.id = tabela_de_associacao.idprimario		                #fazendo a conexão entre as chaves primária e estrangeira
-join instancia_secundaria								#juntando a instancia secundária com a tabela de associoação
-on c.idcurso = ga.idcursos								#fazendo a conexão entre as as chaves primária e estrangeira
-order by instancia_primaria.nome;									#ordena o campo "nome" da instância primária em ordem crescente
+from instancia_primaria join tabela_de_associacao              			#juntando a instancia primária com a tabela de associoação
+on instancia_primaria.campo_da_chave_primaria = tabela_de_associacao.id		#fazendo a conexão entre as chaves primária e estrangeira
+join instancia_secundaria							#juntando a instancia secundária com a tabela de associoação
+on tabela_de_associacao.id = instancia_secundaria.campo_da_chave_primaria	#fazendo a conexão entre as as chaves primária e estrangeira
+order by instancia_primaria.nome;						#ordena o campo "nome" da instância primária em ordem crescente
 ```
 		
 
