@@ -6,7 +6,7 @@ Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso
 
 Uma tabela é composta por **campos** (colunas) e **registros** (linhas ou tuplas)
 
-Caso precise criar um campo que contenha caracteres especiais, deve ficar entre crase; `\`profissão\``.
+Caso precise criar um campo que contenha caracteres especiais, deve ficar entre crase,por exemplo `profissão`.
 
 ### Tipos primitivos de um campo
 O campo de uma tabela deve estar relacionado a um tipo primitivo. 
@@ -156,16 +156,15 @@ Para conectar as tabelas é preciso criar um novo campo (atributo) na entidade d
 Veja [nesse exemplo]([https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/08-modelo%20relacional/n%20para%201.sql](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/08-modelo%20relacional/n%20para%20n.sql) como conectar tabelas de relacionamento n:n através das chaves primária e estrangeira.
 * Para conectar as tabelas n:n é necessário criar uma tabela de associação;
 
-  ```
-  create table tabela_de_associação(
-	id int auto_increment,		#variável para ser usada como chave primária
-    data date,
-    idgafanhoto int,	#variável para ser usada como chave estrangeira da instancia 'gafanhotos'. Precisa ser do mesmo tipo, tamanho e constrain que a chave primária
-    idcursos int,		#variável para ser usada como chave estrangeira da instancia 'cursos'. Precisa ser do mesmo tipo, tamanho e constrain que a chave primária
-    primary key(id),	#transformando a variável 'id' em chave primária
-	foreign key (idgafanhoto) references gafanhotos(id),	# transforma a variável em chave estrangeira da tabela gafanhotos
-	foreign key (idcursos) references cursos(idcursos)		# transforma a variável em chave estrangeira da tabela cursos
-
+```
+create table tabela_de_associacao(
+    id int auto_increment,		# atributo para ser usada como chave primária
+    data date,				# atributo adicional
+    idprimario int,			#atributo para ser usada como chave estrangeira da instancia primária.
+    idsecundario int,			#atributo para ser usada como chave estrangeira da instancia secundária.
+    primary key(id),			#transformando a variável 'id' em chave primária
+    foreign key (idprimario) references instancia_primaria(campo_da_chave_primaria),	# transforma a chave primária da instância primária em chave estrangeira da tabela de associação
+    foreign key (idsecundario) references instancia_secundaria(campo_da_chave_primaria)				# transforma a chave primária da instância secundária em chave estrangeira da tabela de associação
 )default charset = utf8;
-  ```
+```
 
