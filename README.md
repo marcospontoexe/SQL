@@ -4,7 +4,7 @@ SQL, ou Structured Query Language (Linguagem de Consulta Estruturada), é uma li
 ## Criando um banco de dados
 Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/01-criando%20db/01-.sql) como criar, apagar, mostrar e abrir um banco de dados com os comandos; `create database nome_banco_de_dados;`, `drop database nome_banco_de_dados;`, `show databases;`, e `use nome_banco_de_dados;`. Ainda no mesmo exemplo veja como criar, mostrar as tabelas do banco de dados, e ver a descrição de uma tabela como os comandos; `create table nome_tabela(campos);`, `show table;` e `describe nome_tabela;`, e os possíveis tipos de **campos** contidos em uma tabela.
 
-Uma tabela é composta por **campos** (colunas) e **registros** (linhas ou tuplas)
+Uma tabela é composta por **colunas** (campos ou atributos) e **linhas/tuplas** (registros).
 
 Caso precise criar um campo que contenha caracteres especiais, deve ficar entre crase,por exemplo `profissão`.
 
