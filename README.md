@@ -146,11 +146,11 @@ integridade e facilidade de acesso.  Para definir como os dados serão armazenad
     - Exemplo: Definir que cliente_id será um INTEGER e terá um índice para busca rápida.
 
 ### Conceitos Importantes na Modelagem
-**Entidades**: Representam objetos do mundo real (exemplo: Cliente, Produto).
-**Atributos**: Características das entidades (exemplo: nome, preço).
-**Relacionamentos**: Como as entidades se conectam (exemplo: um cliente pode ter vários pedidos).
-**Chaves Primárias**: Identificam de forma única um registro (exemplo: ID do cliente).
-**Chaves Estrangeiras**: Fazem referência a registros de outras tabelas (exemplo: cliente_id na tabela Pedidos).
+* **Entidades** → Representam objetos do mundo real (exemplo: Cliente, Produto).
+* **Atributos** → Características das entidades (exemplo: nome, preço).
+* **Relacionamentos** → Como as entidades se conectam (exemplo: um cliente pode ter vários pedidos).
+* **Chaves Primárias** → Identificam de forma única um registro (exemplo: ID do cliente).
+* **Chaves Estrangeiras** → Fazem referência a registros de outras tabelas (exemplo: cliente_id na tabela Pedidos).
 
 
 ## Modelo relacional
