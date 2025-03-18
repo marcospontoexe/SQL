@@ -4,6 +4,34 @@ SQL, ou Structured Query Language (Linguagem de Consulta Estruturada), é uma li
 # Banco de dados
 Um banco de dados é um sistema organizado para armazenar, gerenciar e recuperar informações de forma eficiente. Ele pode conter diferentes tipos de dados, como números, textos, imagens e até vídeos, dependendo do seu propósito.
 
+## Modelagem de banco de dados
+A modelagem de banco de dados é o processo de estruturar e organizar os dados de forma lógica para garantir eficiência, 
+integridade e facilidade de acesso.  Para definir como os dados serão armazenados, relacionados e manipulados dentro do banco de dados.
+
+### Principais Etapas da Modelagem
+* **Modelo Conceitual**:
+    - Representa a estrutura de alto nível do banco, sem detalhes técnicos.
+    - Usa diagramas (como o Diagrama Entidade-Relacionamento - DER) para mostrar entidades e seus relacionamentos.
+    - Exemplo: "Um cliente pode fazer vários pedidos".
+
+* **Modelo Lógico**:
+    - Traduz o modelo conceitual para um formato mais próximo da implementação.
+    - Define tabelas, atributos, chaves primárias e estrangeiras.
+    - Exemplo: Criação das tabelas "Clientes" e "Pedidos", com o campo cliente_id como chave estrangeira.
+
+* **Modelo Físico**:
+    - Implementação do banco de dados no SGBD (Sistema de Gerenciamento de Banco de Dados).
+    - Define tipos de dados, índices, normalização e otimização do desempenho.
+    - Exemplo: Definir que cliente_id será um INTEGER e terá um índice para busca rápida.
+
+### Conceitos Importantes na Modelagem
+* **Entidades** → Representam objetos do mundo real (exemplo: Cliente, Produto).
+* **Atributos** → Características das entidades (exemplo: nome, preço).
+* **Relacionamentos** → Como as entidades se conectam (exemplo: um cliente pode ter vários pedidos).
+* **Cardinalidade**: → Estabelece o número mínimo e máximo de ocorrências entre duas entidades em um relacionamento. (exemplo: Já um pedido só pode existir se tiver pelo menos um e somente para um cliente)
+* **Chaves Primárias** → Identificam de forma única um registro (exemplo: ID do cliente).
+* **Chaves Estrangeiras** → Fazem referência a registros de outras tabelas (exemplo: cliente_id na tabela Pedidos).
+
 ## Tipos de banco de dados:
 * **Relacional (SQL)** → Usa tabelas e SQL (Structured Query Language), como MySQL, PostgreSQL e SQL Server.
 * **Não relacional (NoSQL)** → Usa documentos, grafos ou pares chave-valor, como MongoDB, Redis e Cassandra.
@@ -122,37 +150,7 @@ Funções de agregação são funções em bancos de dados relacionais que opera
 * Agrupa os registro em comum do campo 'ano', mas que tenha uma quantidade maior do que 3: `select ano, count(*) from nome_tabela group by ano having count(*) > 3;`.
 * Seleciona todos os registro agrupados do campo 'carga' em que os registros do campo 'carga' sejam maior do que a média (avg) desse campo: `select carga, count(*) from cursos group by carga having carga > (select avg(carga) from cursos);`.
 
-
 Veja nesse [repositório](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/07-select/exerc%C3%ADcios.sql) alguns exercícios propostos. [Baixe o Dump](https://github.com/marcospontoexe/SQL/tree/main/MySQL/Curso%20em%20v%C3%ADdeo/07-select) do banco de dados para desenvolvimento dos exercícios propostos.
-
-## Modelagem de banco de dados
-A modelagem de banco de dados é o processo de estruturar e organizar os dados de forma lógica para garantir eficiência, 
-integridade e facilidade de acesso.  Para definir como os dados serão armazenados, relacionados e manipulados dentro do banco de dados.
-
-### Principais Etapas da Modelagem
-* **Modelo Conceitual**:
-    - Representa a estrutura de alto nível do banco, sem detalhes técnicos.
-    - Usa diagramas (como o Diagrama Entidade-Relacionamento - DER) para mostrar entidades e seus relacionamentos.
-    - Exemplo: "Um cliente pode fazer vários pedidos".
-
-* **Modelo Lógico**:
-    - Traduz o modelo conceitual para um formato mais próximo da implementação.
-    - Define tabelas, atributos, chaves primárias e estrangeiras.
-    - Exemplo: Criação das tabelas "Clientes" e "Pedidos", com o campo cliente_id como chave estrangeira.
-
-* **Modelo Físico**:
-    - Implementação do banco de dados no SGBD (Sistema de Gerenciamento de Banco de Dados).
-    - Define tipos de dados, índices, normalização e otimização do desempenho.
-    - Exemplo: Definir que cliente_id será um INTEGER e terá um índice para busca rápida.
-
-### Conceitos Importantes na Modelagem
-* **Entidades** → Representam objetos do mundo real (exemplo: Cliente, Produto).
-* **Atributos** → Características das entidades (exemplo: nome, preço).
-* **Relacionamentos** → Como as entidades se conectam (exemplo: um cliente pode ter vários pedidos).
-* **Cardinalidade**: → Estabelece o número mínimo e máximo de ocorrências entre duas entidades em um relacionamento. (exemplo: Já um pedido só pode existir se tiver pelo menos um e somente para um cliente)
-* **Chaves Primárias** → Identificam de forma única um registro (exemplo: ID do cliente).
-* **Chaves Estrangeiras** → Fazem referência a registros de outras tabelas (exemplo: cliente_id na tabela Pedidos).
-
 
 ## Modelo relacional
 No modelo relacional, os dados são organizados em tabelas (também conhecidas como relações). Cada tabela é composta por linhas e colunas, onde cada linha representa uma entidade e cada coluna representa um atributo dessa entidade. As tabelas são inter-relacionadas por meio de chaves estrangeiras que estabelecem relacionamentos entre os dados.
