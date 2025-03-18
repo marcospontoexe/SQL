@@ -2,7 +2,8 @@
 SQL, ou Structured Query Language (Linguagem de Consulta Estruturada), é uma linguagem de consulta e gerenciamento de banco de dados relacionais.
 
 # Banco de dados
-Um banco de dados é um sistema organizado para armazenar, gerenciar e recuperar informações de forma eficiente. Ele pode conter diferentes tipos de dados, como números, textos, imagens e até vídeos, dependendo do seu propósito.
+Um banco de dados é um sistema organizado para armazenar, gerenciar e recuperar informações de forma eficiente. 
+Ele pode conter diferentes tipos de dados, como números, textos, imagens e até vídeos, dependendo do seu propósito.
 
 ## Modelagem de banco de dados
 A modelagem de banco de dados é o processo de estruturar e organizar os dados de forma lógica para garantir eficiência, 
@@ -28,7 +29,7 @@ integridade e facilidade de acesso.  Para definir como os dados serão armazenad
 * **Entidades** → Representam objetos do mundo real (exemplo: Cliente, Produto).
 * **Atributos** → Características das entidades (exemplo: nome, preço).
 * **Relacionamentos** → Como as entidades se conectam (exemplo: um cliente pode ter vários pedidos).
-* **Cardinalidade**: → Estabelece o número mínimo e máximo de ocorrências entre duas entidades em um relacionamento. (exemplo: Já um pedido só pode existir se tiver pelo menos um e somente para um cliente)
+* **Cardinalidade**: → Estabelece o número mínimo e máximo de ocorrências entre duas entidades em um relacionamento. (exemplo: um pedido só pode existir se tiver pelo menos um e somente para um cliente)
 * **Chaves Primárias** → Identificam de forma única um registro (exemplo: ID do cliente).
 * **Chaves Estrangeiras** → Fazem referência a registros de outras tabelas (exemplo: cliente_id na tabela Pedidos).
 
