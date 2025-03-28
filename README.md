@@ -81,6 +81,15 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
 ### Constrains
 Um constraint (restrição) é uma regra que impõe certas restrições aos dados que podem ser armazenados em uma tabela. As constraints são usadas para garantir a integridade e a consistência dos dados, ajudando a evitar inconsistências, erros ou violações de regras dentro do banco de dados.
 * `default character set utf8`: especifica que o conjunto de caracteres padrão para o banco de dados é UTF-8, que suporta uma ampla gama de caracteres, incluindo caracteres especiais e caracteres de diferentes idiomas.
+Algumas constrains;
+    * PK: Primary Key
+    * NN: Not Null
+    * UQ: Unique
+    * B: Binário (trasforma o registro em valor binário)
+    * UN: Unsigned
+    * ZF: Zero Fill (preenche com zeros a esquerda)
+    * Ai: Auto increment
+    * G: Coluna gerada (para usar com fórmulas)
 
 ### Collate
 COLLATE é uma cláusula utilizada para especificar a ordenação ou a collation a ser utilizada em uma operação de comparação ou classificação de strings.
