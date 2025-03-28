@@ -22,8 +22,13 @@ integridade e facilidade de acesso.  Para definir como os dados serão armazenad
 
 * **Modelo Físico**:
     - Implementação do banco de dados no SGBD (Sistema de Gerenciamento de Banco de Dados).
-    - Define tipos de dados, índices, normalização e otimização do desempenho.
+    - Define tipos de dados, índices, normalização (eliminar inconsistencia e redundancia) e otimização do desempenho.
     - Exemplo: Definir que cliente_id será um INTEGER e terá um índice para busca rápida.
+    - Exemplo de inconsistencia (1fn): 
+        * Quando um atributo é multicomposto, pertence a mais de um tipo primitivo; Endereço pode ser rua+n°+cep, ou ainda rua+n°+cidade, ou ainda rua+n°+referencia+cidade
+        * Quando um atributo é multivalorado, tem vários possíveis valores de um mesmo tipo primitivo; O atributo Telefones sugere inserir mais de um telefone para o mesmo registro, porém o correto é criar uma entidade que possa ter vários telefones (Telefone_1, Telefone_2, Fixo, Culular, Contato_recado...) relacionado ao mesmo registro.
+    - Exemplo de redundancia (2fn): Quando um atributo não tem uma dependência completa com as chaves daquela entidade. O atributo de uma entidade precisa estar completamente relacionado com todas as chaves da entidade.
+    - 3fn: Não ter nehuma dependencia transitiva; quando atributos de uma entidade não possuem uma relação direta, é correto seperar esses atributos em grupos, e criar uma entidade nova para cada grupo, com sua prórpia chave primária.
 
 ### Conceitos Importantes na Modelagem
 * **Entidades** → Representam objetos do mundo real (exemplo: Cliente, Produto).
