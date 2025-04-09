@@ -81,15 +81,14 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
 ### Constrains
 Um constraint (restrição) é uma regra que impõe certas restrições aos dados que podem ser armazenados em uma tabela. As constraints são usadas para garantir a integridade e a consistência dos dados, ajudando a evitar inconsistências, erros ou violações de regras dentro do banco de dados.
 * `default character set utf8`: especifica que o conjunto de caracteres padrão para o banco de dados é UTF-8, que suporta uma ampla gama de caracteres, incluindo caracteres especiais e caracteres de diferentes idiomas.
-Algumas constrains;
-    * PK: Primary Key
-    * NN: Not Null
-    * UQ: Unique
-    * B: Binário (trasforma o registro em valor binário)
-    * UN: Unsigned
-    * ZF: Zero Fill (preenche com zeros a esquerda)
-    * Ai: Auto increment
-    * G: Coluna gerada (para usar com fórmulas)
+* PK: Primary Key
+* NN: Not Null
+* UQ: Unique
+* B: Binário (trasforma o registro em valor binário)
+* UN: Unsigned
+* ZF: Zero Fill (preenche com zeros a esquerda)
+* Ai: Auto increment
+* G: Coluna gerada (para usar com fórmulas)
 
 ### Collate
 COLLATE é uma cláusula utilizada para especificar a ordenação ou a collation a ser utilizada em uma operação de comparação ou classificação de strings.
@@ -168,7 +167,7 @@ Funções de agregação são funções em bancos de dados relacionais que opera
 Veja nesse [repositório](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso%20em%20v%C3%ADdeo/07-select/exerc%C3%ADcios.sql) alguns exercícios propostos. [Baixe o Dump](https://github.com/marcospontoexe/SQL/tree/main/MySQL/Curso%20em%20v%C3%ADdeo/07-select) do banco de dados para desenvolvimento dos exercícios propostos.
 
 ## Modelo relacional
-No modelo relacional, os dados são organizados em tabelas (também conhecidas como relações). Cada tabela é composta por linhas e colunas, onde cada linha representa uma entidade e cada coluna representa um atributo dessa entidade. As tabelas são inter-relacionadas por meio de chaves estrangeiras que estabelecem relacionamentos entre os dados.
+No modelo relacional, os dados são organizados em tabelas (também conhecidas como relações). Cada tabela é composta por linhas e colunas, onde cada linha representa uma **entidade*** e cada coluna representa um **atributo** dessa entidade. As tabelas são inter-relacionadas por meio de **chaves estrangeiras** que estabelecem relacionamentos entre os dados.
 
 **Entidade dominante** deve possuir uma chave primária e também a chave estrangeira (chave primária da entidade secundária).
 
