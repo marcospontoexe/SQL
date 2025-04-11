@@ -227,5 +227,6 @@ Veja [nesse exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso
 	order by instancia_primaria.nome;						#ordena o campo "nome" da instância primária em ordem crescente
 	```
 		
+    **OBSERVAÇÃO**: Como a chave primária das entidades não pode igual (devem ser unique), a tabela de associação deve conter uma chave primária exclusiva desta tabela e as duas chaves secundárias (que são as chaves primárias vinda das outras tabelas), além de ter seus atributos exclusivos, assim como qualquer outra tabela. 
 
-
+    Porém é possível tornas as duas chaves estrangeiras em chaves primárias (que estão relacionadas com as mesma chaves primárias das outras tabelas), dessa forma a tabela de associação não precisa ter sua chave primária exclusiva, ja que a combinação dos valores das duas chaves que eram estrangeiras e agora são primárias, nunca teram o mesmo valor (por exemplo: 1 e 1; 1 e 2; 1 e 3, 2 e 2...). 
