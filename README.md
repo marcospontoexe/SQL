@@ -69,65 +69,80 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
     | `INT` / `INTEGER` | `INT` ou `INTEGER` | 4 bytes          | -2.147.483.648 a 2.147.483.647   | 0 a 4.294.967.295                 |
     | `BIGINT`     | `BIGINT`              | 8 bytes          | -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807 | 0 a 18.446.744.073.709.551.615 |
         
-    * Real: 
-        * Decimal, 
-        * Double, 
-        * Float, 
-        * Real.
-    * Lógico: 
-        * Bit, 
-        * Boolean.
-      
+    **REAL**
+    ---    
+    | Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
+    |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
+    | `DECIMAL(p,s)` | `DECIMAL(10,2)`      | Varia (em string) | Exato, depende de `p` e `s`     | Exato, depende de `p` e `s`      |
+    | `FLOAT(p)`   | `FLOAT(10,2)`         | 4 bytes          | Aproximado: ±3.4E38              | idem                              |
+    | `DOUBLE`     | `DOUBLE` ou `DOUBLE PRECISION` | 8 bytes | Aproximado: ±1.7E308            | idem                              |
+    | `REAL`       | `REAL`                | Depende do SGBD  | Em MySQL é sinônimo de `DOUBLE` | idem                              |
+       
 
+    **LÓGICO**
+    ---    
+    | Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
+    |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
+    | `BIT(n)`     | `BIT(1)`              | depende de `n`   | 0 ou 1 (se `BIT(1)`)             | Binário puro, até 64 bits         |
+    | `BOOLEAN`    | `BOOLEAN` ou `BOOL`   | 1 byte (alias de `TINYINT(1)`) | 0 (FALSO) ou 1 (VERDADEIRO)     | idem                              |
 
+* DATA/TEMPO é usado para registro que contenha informação sobre data e hora.    
 
+    | Tipo      | Como Declarar | Tamanho | Notas |
+    |-----------|----------------|----------|-----------------------------|
+    | `DATE`     | `DATE`         | 3 bytes  | Armazena data: `YYYY-MM-DD` |
+    | `DATETIME` | `DATETIME`     | 8 bytes  | Data e hora: `YYYY-MM-DD HH:MM:SS` |
+    | `TIMESTAMP`| `TIMESTAMP`    | 4 bytes  | Igual ao `DATETIME`, mas baseado no UTC |
+    | `TIME`     | `TIME`         | 3 bytes  | Hora: `HH:MM:SS` (de -838:59:59 a 838:59:59) |
+    | `YEAR`     | `YEAR`         | 1 byte   | Armazena ano em `YYYY`, intervalo: 1901–2155 |
 
-
-
-
-| Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
-|--------------|------------------------|------------------|----------------------------------|-----------------------------------|
-| `DECIMAL(p,s)` | `DECIMAL(10,2)`      | Varia (em string) | Exato, depende de `p` e `s`     | Exato, depende de `p` e `s`      |
-| `FLOAT(p)`   | `FLOAT(10,2)`         | 4 bytes          | Aproximado: ±3.4E38              | idem                              |
-| `DOUBLE`     | `DOUBLE` ou `DOUBLE PRECISION` | 8 bytes | Aproximado: ±1.7E308            | idem                              |
-| `REAL`       | `REAL`                | Depende do SGBD  | Em MySQL é sinônimo de `DOUBLE` | idem                              |
-| `BIT(n)`     | `BIT(1)`              | depende de `n`   | 0 ou 1 (se `BIT(1)`)             | Binário puro, até 64 bits         |
-| `BOOLEAN`    | `BOOLEAN` ou `BOOL`   | 1 byte (alias de `TINYINT(1)`) | 0 (FALSO) ou 1 (VERDADEIRO)     | idem                              |
-
-
-
-
-
-* DATA/TEMPO é usado para registro que contenha informação sobre data e hora.
-    * Date.
-    * DateTime.
-    * TimeStamp.
-    * Time.
-    * Year.
-      
 * LITERAIS.
     * Caractere é usado para armazenar texto curto: 
-        * CHAR(n) – string de comprimento fixo. 
-        * VARCHAR(n) – string de comprimento variável até n
+        
+        | Tipo       | Como Declarar         | Tamanho        | Notas |
+        |------------|------------------------|----------------|------------------------|
+        | `CHAR(n)`  | `CHAR(10)`             | 0 a 255 bytes  | Fixo, preenche com espaços |
+        | `VARCHAR(n)`| `VARCHAR(255)`        | 1 a 65.535 bytes* | Variável, inclui 1 ou 2 bytes de prefixo de tamanho |
+
+
     * Texto é usado para armazenar texto longo: 
-        * TinyText, 
-        * Text, 
-        * MediumText, 
-        * LongText.
+        
+        | Tipo         | Como Declarar | Tamanho Máximo  | Notas |
+        |--------------|----------------|------------------|------------------------------|
+        | `TINYTEXT`   | `TINYTEXT`     | 255 bytes        | Prefixo de 1 byte            |
+        | `TEXT`       | `TEXT`         | 65.535 bytes     | Prefixo de 2 bytes           |
+        | `MEDIUMTEXT` | `MEDIUMTEXT`   | 16.777.215 bytes | Prefixo de 3 bytes           |
+        | `LONGTEXT`   | `LONGTEXT`     | 4.294.967.295 bytes | Prefixo de 4 bytes        |
+
+
     * Binário permiter armazenar qualquer coisa binária: 
-        * TinyBlob, 
-        * Blob, 
-        * MediumBlob, 
-        * LongBlob.
+        
+        | Tipo         | Como Declarar | Tamanho Máximo  | Notas |
+        |--------------|----------------|------------------|------------------------------|
+        | `TINYBLOB`   | `TINYBLOB`     | 255 bytes        | Para dados binários pequenos |
+        | `BLOB`       | `BLOB`         | 65.535 bytes     | Para binários médios         |
+        | `MEDIUMBLOB` | `MEDIUMBLOB`   | 16.777.215 bytes | Para arquivos grandes        |
+        | `LONGBLOB`   | `LONGBLOB`     | 4.294.967.295 bytes | Para arquivos muito grandes |
+
+
+
     * coleção é para configurar qual é o valor permitido de ser armazenado : 
-        * Enum, 
-        * Set.
+
+    | Tipo   | Como Declarar                           | Tamanho     | Notas |
+    |--------|------------------------------------------|-------------|-----------------------------|
+    | `ENUM` | `ENUM('pequeno','médio','grande')`       | 1 ou 2 bytes | Armazena 1 valor da lista   |
+    | `SET`  | `SET('a','b','c','d')`                   | 1 a 8 bytes  | Pode armazenar múltiplos valores da lista |
+
       
 * ESPACIAL é usado para registro com informação volumétrica.
-    * Geometry.
-    * Point.
-    * Polygon.
-    * MultiPolygon.
+    
+    | Tipo          | Como Declarar | Tamanho Estimado | Notas |
+    |---------------|---------------|------------------|------------------------------|
+    | `GEOMETRY`    | `GEOMETRY`    | Varia            | Qualquer tipo espacial (ponto, linha, polígono etc.) |
+    | `POINT`       | `POINT`       | 16 bytes         | Coordenadas (X, Y)           |
+    | `POLYGON`     | `POLYGON`     | Varia            | Uma ou mais áreas fechadas   |
+    | `MULTIPOLYGON`| `MULTIPOLYGON`| Varia            | Vários polígonos combinados  |
+
 
 ### Constrains
 Um constraint (restrição) é uma regra que impõe certas restrições aos dados que podem ser armazenados em uma tabela. As constraints são usadas para garantir a integridade e a consistência dos dados, ajudando a evitar inconsistências, erros ou violações de regras dentro do banco de dados.
