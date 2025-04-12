@@ -61,8 +61,6 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
 
     **INTEIROS**
     ---
-
-    | 🔤 **Strings de Comprimento Fixo/Variável** |     |     |     |      |
     | Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
     |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
     | `TINYINT`    | `TINYINT`             | 1 byte           | -128 a 127                       | 0 a 255                           |
@@ -79,7 +77,6 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
     | `FLOAT(p)`   | `FLOAT(10,2)`         | 4 bytes          | Aproximado: ±3.4E38              | idem                              |
     | `DOUBLE`     | `DOUBLE` ou `DOUBLE PRECISION` | 8 bytes | Aproximado: ±1.7E308            | idem                              |
     | `REAL`       | `REAL`                | Depende do SGBD  | Em MySQL é sinônimo de `DOUBLE` | idem                              |
-       
 
     **LÓGICO**
     ---    
@@ -87,6 +84,7 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
     |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
     | `BIT(n)`     | `BIT(1)`              | depende de `n`   | 0 ou 1 (se `BIT(1)`)             | Binário puro, até 64 bits         |
     | `BOOLEAN`    | `BOOLEAN` ou `BOOL`   | 1 byte (alias de `TINYINT(1)`) | 0 (FALSO) ou 1 (VERDADEIRO)     | idem                              |
+
 
 * DATA/TEMPO é usado para registro que contenha informação sobre data e hora.    
 
@@ -99,13 +97,8 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
     | `YEAR`     | `YEAR`         | 1 byte   | Armazena ano em `YYYY`, intervalo: 1901–2155 |
 
 
-
-
-
-
 * LITERAIS.
     * Caractere é usado para armazenar texto curto: 
-
         | Tipo       | Como Declarar         | Tamanho        | Notas |
         |------------|------------------------|----------------|------------------------|
         | `CHAR(n)`  | `CHAR(10)`             | 0 a 255 bytes  | Fixo, preenche com espaços |
