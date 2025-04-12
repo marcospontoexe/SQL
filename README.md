@@ -58,7 +58,8 @@ O campo de uma tabela deve estar relacionado a um tipo primitivo.
 Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos com diferentes capacidade de armazenamento na memória (quantidade de bytes), para otimizar o dimensionamento da estrutura da tabela;
 
 * NUMÉRICOS são usados para registros do tipo numérico.
-    INTEIROS
+
+    | INTEIROS |
     | Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
     |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
     | `TINYINT`    | `TINYINT`             | 1 byte           | -128 a 127                       | 0 a 255                           |
