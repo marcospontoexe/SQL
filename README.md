@@ -61,6 +61,8 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
 
     **INTEIROS**
     ---
+
+    | 🔤 **Strings de Comprimento Fixo/Variável** |     |     |     |      |
     | Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
     |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
     | `TINYINT`    | `TINYINT`             | 1 byte           | -128 a 127                       | 0 a 255                           |
@@ -96,9 +98,14 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
     | `TIME`     | `TIME`         | 3 bytes  | Hora: `HH:MM:SS` (de -838:59:59 a 838:59:59) |
     | `YEAR`     | `YEAR`         | 1 byte   | Armazena ano em `YYYY`, intervalo: 1901–2155 |
 
+
+
+
+
+
 * LITERAIS.
     * Caractere é usado para armazenar texto curto: 
-        
+
         | Tipo       | Como Declarar         | Tamanho        | Notas |
         |------------|------------------------|----------------|------------------------|
         | `CHAR(n)`  | `CHAR(10)`             | 0 a 255 bytes  | Fixo, preenche com espaços |
