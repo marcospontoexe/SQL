@@ -60,8 +60,7 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
 * NUMÉRICOS são usados para registros do tipo numérico.
     * inteiros:  
 
-                                        INTEIROS
-        |---------------------------------------------------------------------------------------------------------------------------|
+                                                                    INTEIROS
         | Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
         |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
         | `TINYINT`    | `TINYINT`             | 1 byte           | -128 a 127                       | 0 a 255                           |
