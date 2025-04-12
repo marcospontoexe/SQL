@@ -59,8 +59,9 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
 
 * NUMÉRICOS são usados para registros do tipo numérico.
     * inteiros:  
-          |                                                      INTEIROS |
-         |                                                       :---:    |
+
+                                        INTEIROS
+        |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
         | Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
         |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
         | `TINYINT`    | `TINYINT`             | 1 byte           | -128 a 127                       | 0 a 255                           |
@@ -84,6 +85,7 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
 
 
 
+
 | Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
 |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
 | `DECIMAL(p,s)` | `DECIMAL(10,2)`      | Varia (em string) | Exato, depende de `p` e `s`     | Exato, depende de `p` e `s`      |
@@ -92,6 +94,7 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
 | `REAL`       | `REAL`                | Depende do SGBD  | Em MySQL é sinônimo de `DOUBLE` | idem                              |
 | `BIT(n)`     | `BIT(1)`              | depende de `n`   | 0 ou 1 (se `BIT(1)`)             | Binário puro, até 64 bits         |
 | `BOOLEAN`    | `BOOLEAN` ou `BOOL`   | 1 byte (alias de `TINYINT(1)`) | 0 (FALSO) ou 1 (VERDADEIRO)     | idem                              |
+
 
 
 
