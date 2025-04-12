@@ -61,7 +61,7 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
     * inteiros:  
 
         ||| **🔢 Tipos Inteiros** |||
-        :-----------------------------------------------------------------------------------------------------------------------------:
+        :---:
         | Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
         |--------------|------------------------|------------------|----------------------------------|-----------------------------------|
         | `TINYINT`    | `TINYINT`             | 1 byte           | -128 a 127                       | 0 a 255                           |
