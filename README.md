@@ -28,7 +28,9 @@ integridade e facilidade de acesso.  Para definir como os dados serão armazenad
         * Quando um atributo é multicomposto, pertence a mais de um tipo primitivo; Endereço pode ser rua+n°+cep, ou ainda rua+n°+cidade, ou ainda rua+n°+referencia+cidade
         * Quando um atributo é multivalorado, tem vários possíveis valores de um mesmo tipo primitivo; O atributo Telefones sugere inserir mais de um telefone para o mesmo registro, porém o correto é criar uma entidade que possa ter vários telefones (Telefone_1, Telefone_2, Fixo, Culular, Contato_recado...) relacionado ao mesmo registro.
     - Exemplo de redundancia (2fn): Quando um atributo não tem uma dependência completa com as chaves daquela entidade. O atributo de uma entidade precisa ter dependencia exclusiva com a chave primária da entidade.
-    - 3fn: Não ter nehuma dependencia transitiva; quando atributos de uma entidade não possuem uma relação direta, é correto seperar esses atributos em grupos, e criar uma entidade nova para cada grupo, com sua prórpia chave primária.
+    - 3fn: Não ter nehuma dependencia transitiva; quando atributos de uma entidade não possuem uma relação direta, é correto seperar esses atributos em grupos, e criar uma entidade nova para cada grupo, com sua prórpia chave primária. 
+    
+        Por exemplo; *RuaCliente* não tem uma relação diretacom *NomeCliente* e sim com *CepCliente*. Nesse caso deve criar uma nova entidade para o cep do cliente e todos atributos como rua, cidade, número, devem pertencer a essa nova entidade. Essa nova entidade devera ser uma chave estrangeira da entidade relacionada ao cliente.
 
 ### Conceitos Importantes na Modelagem
 * **Entidades** → Representam objetos do mundo real (exemplo: Cliente, Produto).
