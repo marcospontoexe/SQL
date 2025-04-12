@@ -57,10 +57,43 @@ Caso precise criar um campo que contenha caracteres especiais, deve ficar entre 
 O campo de uma tabela deve estar relacionado a um tipo primitivo. 
 Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos com diferentes capacidade de armazenamento na memória (quantidade de bytes), para otimizar o dimensionamento da estrutura da tabela;
 * NUMÉRICOS são usados para registros do tipo numérico.
-    * inteiros:  TinyInt, SmallInt, int, MediumInt, BigInt.
-    * Real: Decimal, Double, Float, Real.
-    * Lógico: Bit, Boolean.
+    * inteiros:  
+        * TinyInt, 
+        * SmallInt, 
+        * int, 
+        * MediumInt, 
+        * BigInt.
+    * Real: 
+        * Decimal, 
+        * Double, 
+        * Float, 
+        * Real.
+    * Lógico: 
+        * Bit, 
+        * Boolean.
       
+
+Claro! Aqui está uma tabela em **Markdown** com as informações dos tipos primitivos numéricos e booleanos que você citou, incluindo: **como declarar**, **tamanho em bytes (aproximado)** e **intervalo numérico** (assumindo sem `UNSIGNED`, exceto onde indicado). Essa tabela segue os padrões do **MySQL**, que é um dos mais usados.
+
+
+
+| Tipo         | Como Declarar         | Tamanho (bytes) | Intervalo (com `SIGNED`)         | Intervalo (com `UNSIGNED`)        |
+|--------------|------------------------|------------------|----------------------------------|-----------------------------------|
+| `TINYINT`    | `TINYINT`             | 1 byte           | -128 a 127                       | 0 a 255                           |
+| `SMALLINT`   | `SMALLINT`            | 2 bytes          | -32.768 a 32.767                 | 0 a 65.535                        |
+| `MEDIUMINT`  | `MEDIUMINT`           | 3 bytes          | -8.388.608 a 8.388.607           | 0 a 16.777.215                    |
+| `INT` / `INTEGER` | `INT` ou `INTEGER` | 4 bytes          | -2.147.483.648 a 2.147.483.647   | 0 a 4.294.967.295                 |
+| `BIGINT`     | `BIGINT`              | 8 bytes          | -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807 | 0 a 18.446.744.073.709.551.615 |
+| `DECIMAL(p,s)` | `DECIMAL(10,2)`      | Varia (em string) | Exato, depende de `p` e `s`     | Exato, depende de `p` e `s`      |
+| `FLOAT(p)`   | `FLOAT(10,2)`         | 4 bytes          | Aproximado: ±3.4E38              | idem                              |
+| `DOUBLE`     | `DOUBLE` ou `DOUBLE PRECISION` | 8 bytes | Aproximado: ±1.7E308            | idem                              |
+| `REAL`       | `REAL`                | Depende do SGBD  | Em MySQL é sinônimo de `DOUBLE` | idem                              |
+| `BIT(n)`     | `BIT(1)`              | depende de `n`   | 0 ou 1 (se `BIT(1)`)             | Binário puro, até 64 bits         |
+| `BOOLEAN`    | `BOOLEAN` ou `BOOL`   | 1 byte (alias de `TINYINT(1)`) | 0 (FALSO) ou 1 (VERDADEIRO)     | idem                              |
+
+
+
+
 * DATA/TEMPO é usado para registro que contenha informação sobre data e hora.
     * Date.
     * DateTime.
@@ -69,10 +102,22 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
     * Year.
       
 * LITERAIS.
-    * Caractere é usado para armazenar texto curto: Char(tamanho fixo), VarChar(tamanho variável).
-    * Texto é usado para armazenar texto longo: TinyText, Text, MediumText, LongText.
-    * Binário permiter armazenar qualquer coisa binária: TinyBlob, Blob, MediumBlob, LongBlob.
-    * coleção é para configurar qual é o valor permitido de ser armazenado : Enum, Set.
+    * Caractere é usado para armazenar texto curto: 
+        * CHAR(n) – string de comprimento fixo. 
+        * VARCHAR(n) – string de comprimento variável até n
+    * Texto é usado para armazenar texto longo: 
+        * TinyText, 
+        * Text, 
+        * MediumText, 
+        * LongText.
+    * Binário permiter armazenar qualquer coisa binária: 
+        * TinyBlob, 
+        * Blob, 
+        * MediumBlob, 
+        * LongBlob.
+    * coleção é para configurar qual é o valor permitido de ser armazenado : 
+        * Enum, 
+        * Set.
       
 * ESPACIAL é usado para registro com informação volumétrica.
     * Geometry.
