@@ -218,7 +218,7 @@ Outros filtros:
 * **AND/OR/NOT**: permitem incluir mais de um filtro/condição na sua comparação. Correspondem aos operadores lógicos “e”, “ou” e “não”, respectivamente;
 * **NULL**: permite filtrar e representar casos em que nenhum valor foi informado – isto é útil para encontrar valores em colunas que não obrigam o preenchimento de algum dado.
 
-WildCards podem ser usados junto com o parâmetro like para selecionar Strings a partir de determinada letra. O sinal de **%** é um caracter coringa que substitui qualquer cadeia de string, até mesmo string vazia. O sinal **_** exige um caractere.
+**WildCards** podem ser usados junto com o parâmetro like para selecionar Strings a partir de determinada letra. O sinal de **%** é um caracter coringa que substitui qualquer cadeia de string, até mesmo string vazia. O sinal **_** exige um caractere.
 * Seleciona todos os registros que tenha 'a' na penúltima letra no campo nome, e que obrigatoriamente possua mais uma letra após o 'a': `select * from nome_tabela where nome like '%a_';`.
 * Seleciona registros que não tenha 'a' no campo nome: `select * from nome_tabela where nome not like '%a%';`
 * Seleciona os registro do campo "nacionaliade" sem repetição: `select distinct nacionalidade from nome_tabela;`.
