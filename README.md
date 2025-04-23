@@ -98,7 +98,9 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
 
 
 * LITERAIS.
+
     * Caractere é usado para armazenar texto curto: 
+
         | Tipo       | Como Declarar         | Tamanho        | Notas |
         |------------|------------------------|----------------|------------------------|
         | `CHAR(n)`  | `CHAR(10)`             | 0 a 255 bytes  | Fixo, preenche com espaços |
@@ -125,13 +127,13 @@ Os tipos primitivos estão divididos em quatro famílias, que possuem sub tipos 
         | `LONGBLOB`   | `LONGBLOB`     | 4.294.967.295 bytes | Para arquivos muito grandes |
 
 
-
     * coleção é para configurar qual é o valor permitido de ser armazenado : 
 
     | Tipo   | Como Declarar                           | Tamanho     | Notas |
     |--------|------------------------------------------|-------------|-----------------------------|
     | `ENUM` | `ENUM('pequeno','médio','grande')`       | 1 ou 2 bytes | Armazena 1 valor da lista   |
     | `SET`  | `SET('a','b','c','d')`                   | 1 a 8 bytes  | Pode armazenar múltiplos valores da lista |
+
 
       
 * ESPACIAL é usado para registro com informação volumétrica.
@@ -210,6 +212,11 @@ Veja nesse [exemplo](https://github.com/marcospontoexe/SQL/blob/main/MySQL/Curso
 * Seleciona alguns campos da tabela, e ordena de forma crescente a partir de um campo primario e depois a partir de um campo secundário: `select nome_campo_1, nome_campo_2, nome_campo_3  from nome_tabela order by nome_campo_primário, nome_campo_secundário;`.
 * Seleciona todos os campos, mas apenas os registros solicitados pelo parâmetro *where*, ordenando a partir de um campo: `select * from nome_tabela where nome_registro = 'nome_do_valor' order by nome_campo;`.
 * Seleciona todos os campos, mas apenas os registros solicitados pelo parâmetro *where*: `select * from nome_tabela where nome_registro > 'nome_do_valor';`. Nesse caso é usado o operador relacional **>** (maior que) como condição, pode ser usado outros operadores (<, >, =, <=, >=, !=, between, and, or, in, like, not).
+
+Outros filtros:
+* **DISTINCT**: remove automaticamente todas as linhas duplicadas do seu SELECT (da sua seleção);
+* **AND/OR/NOT**: permitem incluir mais de um filtro/condição na sua comparação. Correspondem aos operadores lógicos “e”, “ou” e “não”, respectivamente;
+* **NULL**: permite filtrar e representar casos em que nenhum valor foi informado – isto é útil para encontrar valores em colunas que não obrigam o preenchimento de algum dado.
 
 WildCards podem ser usados junto com o parâmetro like para selecionar Strings a partir de determinada letra. O sinal de **%** é um caracter coringa que substitui qualquer cadeia de string, até mesmo string vazia. O sinal **_** exige um caractere.
 * Seleciona todos os registros que tenha 'a' na penúltima letra no campo nome, e que obrigatoriamente possua mais uma letra após o 'a': `select * from nome_tabela where nome like '%a_';`.
