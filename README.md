@@ -325,6 +325,7 @@ Views são como "tabelas virtuais" criadas a partir de uma query (consulta) em S
 * Toda vez que você acessa a view, ela executa a query original por trás dos panos e mostra os dados atualizados.
 
 Para que servem?
+
     * Reutilizar queries complexas sem ter que reescrevê-las.
     * Facilitar o acesso a dados para usuários que não sabem SQL.
     * Evitar duplicação de lógica e garantir consistência.
