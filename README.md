@@ -308,3 +308,12 @@ A imagem a baixo mostra todas as possíveis combinações entre tabelas:
 ![sql join](https://github.com/marcospontoexe/SQL/blob/main/MySQL/sql%20joins.png).
 
 Agora, e se quiséssemos unir dados dentro de uma mesma tabela, ou dados que tenham uma mesma estrutura de colunas? É para isto que existem outras três palavras-chave que são utilizadas no lugar do JOIN: o **UNION**, o **INTERCEPT**, e o **EXCEPT**.
+
+# SQL-TCL (Transaction Control Language)
+A TCL é uma subcategoria da linguagem SQL usada para controlar transações em bancos de dados. Transações são blocos de instruções que devem ser executadas como uma unidade única, garantindo integridade e consistência.
+
+Alguns comando:
+* **BEGIN TRANSACTION**: inicia uma transação. A partir daqui, todas as operações são agrupadas como uma única ação. Isto significa, na prática, que ou tudo é executado, ou nada é executado, caso algum comando falhe, todas as alterações são desfeitas.
+* **END TRANSACTION**: em alguns SGBDs, pode ser usado para encerrar a transação, mas o mais comum é usar COMMIT ou ROLLBACK para isso.
+* **COMMIT**: finaliza a transação e salva todas as alterações feitas no banco de dados de forma permanente.
+* **ROLLBACK**: desfaz todas as alterações feitas desde o BEGIN TRANSACTION, como se nada tivesse acontecido.
