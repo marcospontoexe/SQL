@@ -331,11 +331,10 @@ Para que servem?
     * Usar como base para dashboards, relatórios, ou até para modelos de IA.
 
 O exemplo a baixo:
-'''sql
+```sql
 CREATE VIEW pedidos_por_cliente AS
 SELECT c.nome, COUNT(p.id) AS total_pedidos
 FROM clientes c
 JOIN pedidos p ON c.id = p.cliente_id
 GROUP BY c.nome;
-
-'''
+```
