@@ -317,3 +317,25 @@ Alguns comando:
 * **END TRANSACTION**: em alguns SGBDs, pode ser usado para encerrar a transação, mas o mais comum é usar COMMIT ou ROLLBACK para isso.
 * **COMMIT**: finaliza a transação e salva todas as alterações feitas no banco de dados de forma permanente.
 * **ROLLBACK**: desfaz todas as alterações feitas desde o BEGIN TRANSACTION, como se nada tivesse acontecido.
+
+# Views
+Views são como "tabelas virtuais" criadas a partir de uma query (consulta) em SQL. 
+* Elas não armazenam dados propriamente ditos.
+* São como atalhos para consultas complexas.
+* Toda vez que você acessa a view, ela executa a query original por trás dos panos e mostra os dados atualizados.
+
+Para que servem?
+    * Reutilizar queries complexas sem ter que reescrevê-las.
+    * Facilitar o acesso a dados para usuários que não sabem SQL.
+    * Evitar duplicação de lógica e garantir consistência.
+    * Usar como base para dashboards, relatórios, ou até para modelos de IA.
+
+O exemplo a baixo:
+'''sql
+CREATE VIEW pedidos_por_cliente AS
+SELECT c.nome, COUNT(p.id) AS total_pedidos
+FROM clientes c
+JOIN pedidos p ON c.id = p.cliente_id
+GROUP BY c.nome;
+
+'''
