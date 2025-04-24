@@ -330,11 +330,15 @@ Para que servem?
     * Evitar duplicação de lógica e garantir consistência.
     * Usar como base para dashboards, relatórios, ou até para modelos de IA.
 
-O exemplo a baixo:
+O exemplo a baixo cria uma view chamada **pedidos_por_cliente** no banco de dados nome_banco_dados. Todos os camando depois do **AS** fazem parte da view criada.
+
 ```sql
-CREATE VIEW pedidos_por_cliente AS
-SELECT c.nome, COUNT(p.id) AS total_pedidos
-FROM clientes c
-JOIN pedidos p ON c.id = p.cliente_id
-GROUP BY c.nome;
+CREATE VIEW nome_banco_dados.pedidos_por_cliente AS
+SELECT c.Nome, a.NumeroResidencial, a.CPF, b.Logradouro, a.Complemento, b.Municipio, b.UF, b.CEP
+FROM nome_banco_dados clientes a
+JOIN nome_banco_dados.enderecos b ON a.CodEndereco = b.CodEndereco;
 ```
+
+A view é tratada como uma tabela. Use o comando `select * from nome_banco_dados.pedidos_por_cliente` para visualiar todos os registros dessa tabela.
+
+Apague a view com o comando `drop view nome_banco_dados.pedidos_por_cliente`.
