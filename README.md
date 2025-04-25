@@ -343,3 +343,102 @@ JOIN nome_banco_dados.enderecos b ON a.CodEndereco = b.CodEndereco;
 A view é tratada como uma tabela. Use o comando `select * from nome_banco_dados.pedidos_por_cliente` para visualiar todos os registros dessa tabela.
 
 Apague a view com o comando `drop view nome_banco_dados.pedidos_por_cliente`.
+
+# Triggers
+Triggers são **gatilhos automáticos** que executam um bloco de código SQL quando algo acontece em uma tabela — como um INSERT, UPDATE ou DELETE.
+
+Quando são executadas?
+1. Elas podem ser disparadas:
+    * Antes da ação (BEFORE)
+    * Depois da ação (AFTER)
+
+Para que servem?
+1. Garantir regras de negócio automáticas.
+2. Atualizar ou validar dados automaticamente.
+3. Evitar inconsistências.
+4. Criar logs ou históricos de mudanças.
+
+##  Exemplo 
+Imagine uma tabela notas onde você insere a nota do aluno, e quer atualizar automaticamente o status de aprovação em outra tabela.
+
+```sql
+delimiter $ # como tem dois sinais de ; no final do comando, usar um delimiter para tratar todo o conteudo com uma única transação
+CREATE TRIGGER nome_banco_dados.atualizar_status # O trigger é chamado atualizar_status e pertence à entidade nome_banco_dados.
+AFTER INSERT ON nome_banco_dados.notas   # Executa o trigger depois da operação na tabela
+FOR EACH ROW            # Executa o trigger para cada linha afetada
+BEGIN                   # Início do bloco de lógica
+  UPDATE nome_banco_dados.status_aluno
+  SET status = CASE 
+                 WHEN NEW.nota >= 7 THEN 'Aprovado'
+                 ELSE 'Reprovado'
+               END
+  WHERE aluno_id = NEW.aluno_id;
+END$;                   # Fim do bloco de lógica e tambem fim do delimiter ($)
+delimiter ;             # Configura o delimiter para o sinal de ; novamente
+```
+
+Quando usar **NEW**:
+* Em triggers de INSERT → para acessar os valores que serão inseridos
+* Em triggers de UPDATE → para acessar os novos valores atualizados
+
+Quando usar **OLD**:
+* Usado em triggers de UPDATE ou DELETE
+* Representa os valores antigos que estão sendo modificados ou apagados.
+
+#  Functions 
+As functions são rotinas reutilizáveis que executam alguma lógica específica e retornam um valor, podem receber ou não parâmetros de entrada. Elas são criadas para evitar repetição de código e facilitar a automação de processos dentro do banco de dados.
+
+Use **FUNCTION** quando precisa calcular e retornar um resultado.
+
+Veja um exemplo: 
+
+```sql
+delimiter $ # como tem dois sinais de ; no final do comando, usar um delimiter para tratar todo o conteudo com uma única transação
+CREATE FUNCTION calcular_desconto(preco DECIMAL(10,2), percentual INT)
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+  DECLARE valor_final DECIMAL(10,2);
+  SET valor_final = preco - (preco * percentual / 100);
+  RETURN valor_final;
+END$;                   # Fim do bloco de lógica e tambem fim do delimiter ($)
+delimiter ;             # Configura o delimiter para o sinal de ; novamente;
+```
+
+Para usar a função com o comando `SELECT calcular_desconto(100.00, 10);` é retornado o valor 90.00
+
+
+# Procedures
+Uma procedure (ou procedimento armazenado) é um bloco de código SQL reutilizável, criado para executar uma ou mais operações no banco de dados. Diferente das functions, ela não precisa retornar um valor, embora possa retornar dados se quiser, e também pode receber parÂmetros de entrada.
+
+Use **PROCEDURE** quando precisa executar uma tarefa completa, como alterar várias tabelas.
+
+Veja um exemplo: 
+
+````sql
+DELIMITER //
+
+CREATE PROCEDURE atualizar_status_aluno(IN nota_final DECIMAL(4,2), OUT status VARCHAR(10))
+BEGIN
+  IF nota_final >= 7.0 THEN
+    SET status = 'Aprovado';
+  ELSE
+    SET status = 'Reprovado';
+  END IF;
+END;
+//
+
+DELIMITER ;
+```
+
+Ao usar o comando `CALL atualizar_status_aluno(8.5, @resultado);`  não é mostrado.
+Para ver o valor retornado use o comando `SELECT @resultado;`, isso retorna o valor *aprovado*.
+
+## Diferença entre functions e procedures
+
+Característica | Function | Procedure (Stored Procedure)
+Retorna valor? | ✅ Sim (sempre) | ❌ Não necessariamente
+Uso típico | Cálculos, validações, transformações de dados | Ações e operações completas (inserir, atualizar, apagar dados, etc.)
+Pode ser chamada em SELECT? | ✅ Sim | ❌ Não
+Chamada via SQL comum | Sim (em SELECT, por exemplo) | Não – geralmente chamada por CALL
+
