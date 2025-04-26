@@ -418,7 +418,7 @@ Veja um exemplo:
 ```sql
 DELIMITER //
 
-CREATE PROCEDURE atualizar_status_aluno(IN nota_final DECIMAL(4,2), OUT status VARCHAR(10))
+CREATE PROCEDURE nome_banco_dados.atualizar_status_aluno(IN nota_final DECIMAL(4,2), OUT status VARCHAR(10))    #IN é o paramentro de entrada, OUT é o parametro de saida.
 BEGIN
   IF nota_final >= 7.0 THEN
     SET status = 'Aprovado';
