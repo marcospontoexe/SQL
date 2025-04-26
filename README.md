@@ -437,6 +437,7 @@ Para ver o valor retornado use o comando `SELECT @resultado;`, isso retorna o va
 ## Diferença entre functions e procedures
 
 | Característica | Function | Procedure (Stored Procedure) |
+|-----------------|-----------|----------------|
 | Retorna valor? | ✅ Sim (sempre) | ❌ Não necessariamente |
 | Uso típico | Cálculos, validações, transformações de dados | Ações e operações completas (inserir, atualizar, apagar dados, etc.) |
 | Pode ser chamada em SELECT? | ✅ Sim | ❌ Não|
