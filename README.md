@@ -405,7 +405,7 @@ END$;                   # Fim do bloco de lógica e tambem fim do delimiter ($)
 delimiter ;             # Configura o delimiter para o sinal de ; novamente;
 ```
 
-Para usar a função com o comando `SELECT calcular_desconto(100.00, 10);` é retornado o valor 90.00
+Ao usar a função com o comando `SELECT calcular_desconto(100.00, 10);` é retornado o valor 90.00
 
 
 # Procedures
@@ -431,14 +431,14 @@ END;
 DELIMITER ;
 ```
 
-Ao usar o comando `CALL atualizar_status_aluno(8.5, @resultado);`  não é mostrado.
+Ao usar o comando `CALL atualizar_status_aluno(8.5, @resultado);`  não é mostrado nada.
 Para ver o valor retornado use o comando `SELECT @resultado;`, isso retorna o valor *aprovado*.
 
 ## Diferença entre functions e procedures
 
-Característica | Function | Procedure (Stored Procedure)
-Retorna valor? | ✅ Sim (sempre) | ❌ Não necessariamente
-Uso típico | Cálculos, validações, transformações de dados | Ações e operações completas (inserir, atualizar, apagar dados, etc.)
-Pode ser chamada em SELECT? | ✅ Sim | ❌ Não
-Chamada via SQL comum | Sim (em SELECT, por exemplo) | Não – geralmente chamada por CALL
+|Característica | Function | Procedure (Stored Procedure)|
+|Retorna valor? | ✅ Sim (sempre) | ❌ Não necessariamente|
+|Uso típico | Cálculos, validações, transformações de dados | Ações e operações completas (inserir, atualizar, apagar dados, etc.)|
+|Pode ser chamada em SELECT? | ✅ Sim | ❌ Não|
+|Chamada via SQL comum | Sim (em SELECT, por exemplo) | Não – geralmente chamada por CALL|
 
