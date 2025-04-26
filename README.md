@@ -394,7 +394,7 @@ Veja um exemplo:
 
 ```sql
 delimiter $ # como tem dois sinais de ; no final do comando, usar um delimiter para tratar todo o conteudo com uma única transação
-CREATE FUNCTION calcular_desconto(preco DECIMAL(10,2), percentual INT)
+CREATE FUNCTION  nome_banco_dados.calcular_desconto(preco DECIMAL(10,2), percentual INT)
 RETURNS DECIMAL(10,2)
 DETERMINISTIC
 BEGIN
