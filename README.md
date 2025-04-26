@@ -415,7 +415,7 @@ Use **PROCEDURE** quando precisa executar uma tarefa completa, como alterar vár
 
 Veja um exemplo: 
 
-````sql
+```sql
 DELIMITER //
 
 CREATE PROCEDURE atualizar_status_aluno(IN nota_final DECIMAL(4,2), OUT status VARCHAR(10))
