@@ -1,6 +1,8 @@
 # SQL
 SQL, ou Structured Query Language (Linguagem de Consulta Estruturada), é uma linguagem de consulta e gerenciamento de banco de dados relacionais.
 
+
+
 # Banco de dados
 Um banco de dados é um sistema organizado para armazenar, gerenciar e recuperar informações de forma eficiente. 
 Ele pode conter diferentes tipos de dados, como números, textos, imagens e até vídeos, dependendo do seu propósito.
@@ -309,6 +311,8 @@ A imagem a baixo mostra todas as possíveis combinações entre tabelas:
 
 Agora, e se quiséssemos unir dados dentro de uma mesma tabela, ou dados que tenham uma mesma estrutura de colunas? É para isto que existem outras três palavras-chave que são utilizadas no lugar do JOIN: o **UNION**, o **INTERCEPT**, e o **EXCEPT**.
 
+
+
 # SQL-TCL (Transaction Control Language)
 A TCL é uma subcategoria da linguagem SQL usada para controlar transações em bancos de dados. Transações são blocos de instruções que devem ser executadas como uma unidade única, garantindo integridade e consistência.
 
@@ -317,6 +321,8 @@ Alguns comando:
 * **END TRANSACTION**: em alguns SGBDs, pode ser usado para encerrar a transação, mas o mais comum é usar COMMIT ou ROLLBACK para isso.
 * **COMMIT**: finaliza a transação e salva todas as alterações feitas no banco de dados de forma permanente.
 * **ROLLBACK**: desfaz todas as alterações feitas desde o BEGIN TRANSACTION, como se nada tivesse acontecido.
+
+
 
 # Views
 Views são como "tabelas virtuais" criadas a partir de uma query (consulta) em SQL. 
@@ -343,6 +349,8 @@ JOIN nome_banco_dados.enderecos b ON a.CodEndereco = b.CodEndereco;
 A view é tratada como uma tabela. Use o comando `select * from nome_banco_dados.pedidos_por_cliente` para visualiar todos os registros dessa tabela.
 
 Apague a view com o comando `drop view nome_banco_dados.pedidos_por_cliente`.
+
+
 
 # Triggers
 Triggers são **gatilhos automáticos** que executam um bloco de código SQL quando algo acontece em uma tabela — como um INSERT, UPDATE ou DELETE.
@@ -385,6 +393,8 @@ Quando usar **OLD**:
 * Usado em triggers de UPDATE ou DELETE
 * Representa os valores antigos que estão sendo modificados ou apagados.
 
+
+
 #  Functions 
 As functions são rotinas reutilizáveis que executam alguma lógica específica e retornam um valor, podem receber ou não parâmetros de entrada. Elas são criadas para evitar repetição de código e facilitar a automação de processos dentro do banco de dados.
 
@@ -406,6 +416,7 @@ delimiter ;             # Configura o delimiter para o sinal de ; novamente;
 ```
 
 Ao usar a função com o comando `SELECT calcular_desconto(100.00, 10);` é retornado o valor 90.00
+
 
 
 # Procedures
@@ -442,6 +453,8 @@ Para ver o valor retornado use o comando `SELECT @resultado;`, isso retorna o va
 | Uso típico | Cálculos, validações, transformações de dados | Ações e operações completas (inserir, atualizar, apagar dados, etc.) |
 | Pode ser chamada em SELECT? | ✅ Sim | ❌ Não|
 | Chamada via SQL comum | Sim (em SELECT, por exemplo) | Não – geralmente chamada por CALL |
+
+
 
 # Segurança e controle de acesso
 Segurança e controle de acesso garantem que só pessoas autorizadas possam acessar, modificar ou excluir informações no banco de dados. Isso é fundamental para proteger dados sensíveis, evitar perdas, fraudes e vazamentos.
