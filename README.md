@@ -443,3 +443,31 @@ Para ver o valor retornado use o comando `SELECT @resultado;`, isso retorna o va
 | Pode ser chamada em SELECT? | ✅ Sim | ❌ Não|
 | Chamada via SQL comum | Sim (em SELECT, por exemplo) | Não – geralmente chamada por CALL |
 
+# Segurança e controle de acesso
+Segurança e controle de acesso garantem que só pessoas autorizadas possam acessar, modificar ou excluir informações no banco de dados. Isso é fundamental para proteger dados sensíveis, evitar perdas, fraudes e vazamentos.
+
+## GRANT
+O comando GRANT serve para dar permissões (acessos) a usuários sobre bancos de dados, tabelas, ou outros objetos do banco.
+
+Sintaxe:
+```sql
+GRANT tipo_de_permissao ON nome_do_banco.nome_da_tabela TO 'usuario'@'host';
+```
+
+No exemplo a seguir, o usuário joao (que se conecta a partir do localhost) a permissão de consultar (SELECT) e inserir (INSERT) dados na tabela clientes do banco loja:
+```sql
+GRANT SELECT, INSERT ON loja.clientes TO 'joao'@'localhost';
+```
+
+## REVOKE
+O comando REVOKE serve para remover permissões que foram concedidas a um usuário.
+
+Sintaxe:
+```sql
+REVOKE tipo_de_permissao ON nome_do_banco.nome_da_tabela FROM 'usuario'@'host';
+```
+
+No exemplo a seguir, é retirada a permissão de inserir dados da tabela clientes do banco loja para o usuário joao:
+```sql
+REVOKE INSERT ON loja.clientes FROM 'joao'@'localhost';
+```
