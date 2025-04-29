@@ -456,8 +456,25 @@ Para ver o valor retornado use o comando `SELECT @resultado;`, isso retorna o va
 
 
 
-# Segurança e controle de acesso
-Segurança e controle de acesso garantem que só pessoas autorizadas possam acessar, modificar ou excluir informações no banco de dados. Isso é fundamental para proteger dados sensíveis, evitar perdas, fraudes e vazamentos.
+# Controle de acesso
+Controle de acesso garantem que só pessoas autorizadas possam acessar, modificar ou excluir informações no banco de dados. Isso é fundamental para proteger dados sensíveis, evitar perdas, fraudes e vazamentos.
+
+##  Controle de Acesso
+Controle de acesso define quem pode fazer o quê dentro do banco de dados.
+
+Envolve:
+* Autenticação: verificar se o usuário é quem diz ser (ex.: login e senha).
+* Autorização: definir o que o usuário pode fazer (ex.: pode consultar, mas não apagar dados).
+
+Ferramentas principais para controle no MySQL:
+* Usuários e Senhas (CREATE USER, ALTER USER)
+* Permissões específicas (GRANT, REVOKE)
+* Perfis diferentes para diferentes funções (administrador, analista, visitante, etc.)
+
+O comando a seguir cria um usuário chamado "usuario_analista", com a senha "senha123":
+```sql
+CREATE USER 'usuario_analista'@'localhost' IDENTIFIED BY 'senha123';
+```
 
 ## GRANT
 O comando GRANT serve para dar permissões (acessos) a usuários sobre bancos de dados, tabelas, ou outros objetos do banco.
