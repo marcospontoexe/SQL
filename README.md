@@ -2,7 +2,6 @@
 SQL, ou Structured Query Language (Linguagem de Consulta Estruturada), é uma linguagem de consulta e gerenciamento de banco de dados relacionais.
 
 
-
 # Banco de dados
 Um banco de dados é um sistema organizado para armazenar, gerenciar e recuperar informações de forma eficiente. 
 Ele pode conter diferentes tipos de dados, como números, textos, imagens e até vídeos, dependendo do seu propósito.
