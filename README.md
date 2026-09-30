@@ -1,4 +1,82 @@
 # SQL
+
+Meus estudos de banco de dados relacional com MySQL: scripts e exercícios desenvolvidos no [Curso de Banco de Dados MySQL](https://www.youtube.com/watch?v=Ofktsne-utM&list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r) do [Curso em Vídeo](https://www.cursoemvideo.com/), com o professor Gustavo Guanabara, e anotações teóricas sobre modelagem de dados e SQL.
+
+## Sumário
+
+- [Curso](#curso)
+- [Projetos desenvolvidos](#projetos-desenvolvidos)
+  - [Banco de dados `cadastro`](#banco-de-dados-cadastro)
+  - [Consultas e exercícios](#consultas-e-exercícios)
+  - [Relacionamentos entre tabelas](#relacionamentos-entre-tabelas)
+- [Ferramentas](#ferramentas)
+- [Como executar](#como-executar)
+- Anotações de estudo: [O que é SQL](#o-que-é-sql) · [Banco de dados](#banco-de-dados) · [Tipos primitivos](#tipos-primitivos-de-um-campo) · [SELECT](#obtendo-dados-da-tabela) · [Modelo relacional](#modelo-relacional) · [TCL](#sql-tcl-transaction-control-language) · [Views](#views) · [Triggers](#triggers) · [Functions](#functions) · [Procedures](#procedures) · [Controle de acesso](#controle-de-acesso)
+
+## Curso
+
+O material fica na pasta [MySQL/Curso em vídeo/](MySQL/Curso%20em%20vídeo/), com uma pasta por aula, na ordem do curso. As aulas `01` a `06` constroem o banco `cadastro` do zero, a `07` pratica consultas numa base maior fornecida pelo curso e a `08` liga as tabelas por chaves estrangeiras.
+
+## Projetos desenvolvidos
+
+Os scripts são comentados linha a linha e foram feitos para ser executados um comando de cada vez, acompanhando as aulas.
+
+### Banco de dados `cadastro`
+
+| Aula | O que foi praticado |
+|---|---|
+| [01-criando db](MySQL/Curso%20em%20vídeo/01-criando%20db/01-.sql) | Primeiro banco (`pacientes`) e tabela `pessoa`: `create database`, `use`, `show tables`, `describe` e os tipos primitivos do MySQL (numéricos, data/tempo, literais e espaciais) |
+| [02-criando db](MySQL/Curso%20em%20vídeo/02-criando%20db/02.sql) | Banco `cadastro` com `utf8` e collation `utf8_general_ci`. A tabela `pessoa` ganha constraints: `not null`, `auto_increment`, `enum('M','F')`, valor `default` e chave primária |
+| [03-insert to](MySQL/Curso%20em%20vídeo/03-insert%20to/exemplo.sql) | `insert into` com lista de campos, com `default`, sem lista de campos e com vários registros num só comando |
+| [04-alter](MySQL/Curso%20em%20vídeo/04-alter/) | `alter table` para adicionar (`first`, `after`), remover, modificar (`modify`) e renomear (`change`) colunas. Renomeia a tabela `pessoa` para `pacientes` e cria a tabela `cursos` com `unique`, `unsigned` e uma chave primária adicionada depois da criação |
+| [05-manipulando registros(linhas)](MySQL/Curso%20em%20vídeo/05-manipulando%20registros%28linhas%29/ex.sql) | `update` de uma ou mais colunas com `where` e `limit` como medida de segurança, `delete` e `truncate` |
+| [06-fazendo backup](MySQL/Curso%20em%20vídeo/06-fazendo%20backup/backup.sql) | Backup do banco `cadastro` (tabelas `cursos` e `pacientes`, com estrutura e dados) gerado com o `mysqldump` |
+
+### Consultas e exercícios
+
+[07-select](MySQL/Curso%20em%20vídeo/07-select/)
+
+O curso fornece um dump, [Dump-CeV01.sql](MySQL/Curso%20em%20vídeo/07-select/Dump-CeV01.sql), com duas tabelas: `cursos`, com 30 cursos, e `gafanhotos`, com 61 alunos fictícios (profissão, nascimento, sexo, peso, altura e nacionalidade).
+
+- [select.sql](MySQL/Curso%20em%20vídeo/07-select/select.sql): ordenação (`order by`, `desc`), filtros com `where`, `between`, `in` e `like` com os coringas `%` e `_`, `distinct`, funções de agregação (`count`, `max`, `min`, `sum`, `avg`), `group by` e `having`, incluindo uma subconsulta que compara a carga horária de cada curso com a média.
+- [exercícios.sql](MySQL/Curso%20em%20vídeo/07-select/exercícios.sql): 13 exercícios resolvidos sobre a tabela `gafanhotos`. Por exemplo: listar as mulheres nascidas no Brasil cujo nome começa com J, achar o menor peso entre as mulheres estrangeiras nascidas entre 1990 e 2000, e agrupar os estrangeiros por país, mostrando só os países com mais ocorrências.
+
+### Relacionamentos entre tabelas
+
+[08-modelo relacional](MySQL/Curso%20em%20vídeo/08-modelo%20relacional/)
+
+Usa as tabelas do dump da aula 07.
+
+- **1:N** ([n para 1.sql](MySQL/Curso%20em%20vídeo/08-modelo%20relacional/n%20para%201.sql)): cada gafanhoto pode ter um curso preferido. A chave estrangeira `cursopreferido` é criada em `gafanhotos`, o lado N, e referencia `cursos`. As consultas comparam `inner join`, `left join` e `right join`, usando apelidos de tabela.
+- **N:N** ([n para n.sql](MySQL/Curso%20em%20vídeo/08-modelo%20relacional/n%20para%20n.sql)): cada gafanhoto pode assistir a vários cursos, e cada curso pode ter vários alunos. A tabela de associação `gafanhotos_cursos` guarda as duas chaves estrangeiras e a data em que o aluno assistiu ao curso. A consulta final junta as três tabelas para listar quem assistiu a qual curso, e quando.
+
+## Ferramentas
+
+- **MySQL Server** e **MySQL Workbench**: onde os scripts foram escritos e executados.
+- **[brModelo](MySQL/brModelo.jar)**: ferramenta para desenhar modelos conceituais (diagramas entidade-relacionamento). O `.jar` está no repositório e abre com `java -jar MySQL/brModelo.jar`.
+- [sql joins.png](MySQL/sql%20joins.png): diagrama com todos os tipos de join, usado nas anotações.
+
+## Como executar
+
+É preciso ter o MySQL Server (5.6 ou superior) e um cliente, como o MySQL Workbench.
+
+Para as aulas `07` e `08`, importe primeiro o dump do curso. Ele cria o banco `cadastro`, se ainda não existir, e **apaga e recria** as tabelas `cursos` e `gafanhotos`:
+
+```bash
+git clone https://github.com/marcospontoexe/SQL.git
+cd SQL
+mysql -u root -p < "MySQL/Curso em vídeo/07-select/Dump-CeV01.sql"
+```
+
+No Windows, rode esse comando no Git Bash ou no Prompt de Comando (o PowerShell não aceita o `<`), ou importe o arquivo pelo Workbench em **Server > Data Import > Import from Self-Contained File**.
+
+As aulas `01` a `05` criam tudo do zero. Execute-as em ordem, um comando de cada vez, porque são demonstrações passo a passo: a `04`, por exemplo, cria a tabela `cursos` e logo depois a apaga. As aulas `04` e `05` não têm `use`, então selecione antes o banco com `use cadastro;`.
+
+Projeto distribuído sob a licença MIT. Veja [LICENSE](LICENSE).
+
+---
+
+# O que é SQL
 SQL, ou Structured Query Language (Linguagem de Consulta Estruturada), é uma linguagem de consulta e gerenciamento de banco de dados relacionais.
 
 
