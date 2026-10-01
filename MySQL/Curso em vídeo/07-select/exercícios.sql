@@ -60,7 +60,7 @@ order by profissao;
 #----------------------Exercício 2---------------
 #mostre a quantidade de homens e a quantidade de mulheres que nasceram após 01/01/2005
 select sexo, count(*) from gafanhotos
-where nascimento > 2005-01-01
+where nascimento > '2005-01-01'
 group by sexo;
 
 #----------------------Exercício 3---------------

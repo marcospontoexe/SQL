@@ -28,7 +28,7 @@ Lessons share state through the `cadastro` database:
   mysql -u root -p < "MySQL/Curso em vídeo/07-select/Dump-CeV01.sql"
   ```
 
-Column names differ between the dumps: `cursos.idcurso` in `Dump-CeV01.sql`, `cursos.id_curso` in `backup.sql`. `n para n.sql` mixes `idcurso` and `idcursos`. Check the actual schema before "fixing" queries.
+Column names differ between the dumps: `cursos.idcurso` in `Dump-CeV01.sql`, `cursos.id_curso` in `backup.sql`. In `n para n.sql`, `idcursos` is the foreign-key column of `gafanhotos_cursos` and `idcurso` is the primary key of `cursos`. Check the actual schema before "fixing" queries.
 
 ## Conventions in the SQL files
 

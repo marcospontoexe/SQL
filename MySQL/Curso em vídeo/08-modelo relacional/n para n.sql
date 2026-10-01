@@ -9,7 +9,7 @@ create table gafanhotos_cursos(
     idcursos int,		#variável para ser usada como chave estrangeira da instancia 'cursos'. Precisa ser do mesmo tipo, tamanho e constrain que a chave primária
     primary key(id),	#transformando a variável 'id' em chave primária
 	foreign key (idgafanhoto) references gafanhotos(id),	# transforma a variável em chave estrangeira da tabela gafanhotos
-	foreign key (idcursos) references cursos(idcursos)		# transforma a variável em chave estrangeira da tabela cursos
+	foreign key (idcursos) references cursos(idcurso)		# transforma a variável em chave estrangeira da tabela cursos
 
 )default charset = utf8;
 
