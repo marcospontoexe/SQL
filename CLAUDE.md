@@ -41,6 +41,19 @@ Column names differ between the dumps: `cursos.idcurso` in `Dump-CeV01.sql`, `cu
 - `git` is not on the PowerShell PATH in this environment. Use the full path to git or another shell if git commands fail.
 - `MySQL/Curso em vídeo/01-criando db/Novo Documento de Texto.txt` is a near-duplicate of `01-.sql`.
 
+## Portfolio plan
+
+The user plans a portfolio that will feature this repo alongside their other study repos (e.g. PHP). Decided so far (2026-10-01):
+
+- **No GitHub Pages site for this repo alone.** The README already serves as the project page, and a Pages copy would duplicate it.
+- **One portfolio site instead:** a user site in a repo named `marcospontoexe.github.io`, served at `https://marcospontoexe.github.io`. It has a short page per repo that links to that repo's README. GitHub Pages is static-only, so the PHP projects would appear as screenshots and code, or be hosted elsewhere.
+- **Order:**
+  1. A profile README in a repo named `marcospontoexe`.
+  2. The portfolio site, once there are 3–4 presentable projects.
+  3. Optionally, an in-browser SQL playground built with sql.js, where visitors query the `gafanhotos` table. This needs the MySQL dump converted to the SQLite dialect first.
+
+None of these has been started. Keep the README overview section accurate, because it is what the portfolio will link to.
+
 ---
 
 # Regra: Persistência de Contexto (Handoff entre sessões)
